@@ -1,0 +1,159 @@
+body {
+  margin: 0;
+  background: #fef4ea;
+  font-family: sans-serif;
+}
+
+/* === Intro Section (Sunset Style) === */
+.title-wrapper {
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: -60px;
+}
+
+.title-wrapper h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.title-wrapper h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #444;
+}
+
+.intro-section {
+  position: relative;
+  min-height: 220vh; /* enough scroll room */
+}
+
+.sticky-graphic {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  z-index: 2;
+}
+
+.graphic {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background visual */
+.intro-visual {
+  width: 100%;
+  object-fit: cover;
+  position: absolute;
+  bottom: 10%;
+  left: 0;
+  z-index: 2;
+}
+
+/* Sun circle */
+.sun-wrapper {
+  position: fixed;
+  top: 20vh;
+  left: 20%;
+  z-index: 0;
+}
+
+.sun {
+  width: 120px;
+  height: 120px;
+  filter: blur(1px);
+}
+
+/* Gradient fade overlay */
+.fade-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60vh;
+  background: linear-gradient(to bottom, rgba(254,244,234,0) 0%, #fef4ea 90%);
+  z-index: 1;
+}
+
+/* Scroll text area */
+.scroll-text {
+  position: relative;
+  z-index: 1;
+  padding: 2rem 1.5rem;
+  font-size: 1.8rem;
+  line-height: 1.7;
+  max-width: 600px;
+  margin: 0 auto;
+  color: #333;
+}
+
+.scroll-paragraph {
+  margin: 40vh 0; /* spacing */
+}
+
+.scroll-paragraph:first-of-type {
+  margin-top: -20vh; /* appears earlier */
+}
+
+/* === Next Section (Static Text) === */
+.text-section {
+  padding: 4rem 1.5rem;
+  line-height: 1.7;
+  font-size: 1.05rem;
+  color: #333;
+  min-height: 100vh;
+}
+
+.text-wrapper {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.text-section p {
+  margin-bottom: 2rem;
+}
+
+/* === Desktop Enhancements === */
+@media (min-width: 1024px) {
+  .title-wrapper h1 {
+    font-size: 3rem;
+  }
+
+  .title-wrapper h2 {
+    font-size: 1.5rem;
+  }
+
+  .intro-visual {
+  width: 100%;
+  object-fit: cover;
+  position: absolute;
+  bottom: -10%;
+  left: 0;
+  z-index: 2;
+}
+
+
+  .scroll-text {
+    font-size: 1.3rem;
+    max-width: 700px;
+  }
+
+  .scroll-paragraph {
+    margin: 30vh 0; /* less empty scroll on desktop */
+  }
+
+  .scroll-paragraph:first-of-type {
+    margin-top: -10vh; /* show earlier */
+  }
+
+  .sun {
+    width: 200px;
+    height: 200px;
+  }
+
+  .sun-wrapper {
+    left: 25%;
+  }
+}

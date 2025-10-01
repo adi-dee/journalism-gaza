@@ -254,3 +254,29 @@ body {
   justify-content: center;
   font-size: 0.9rem;
 }
+
+/* === map animation === */
+.map-wrapper {
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.map-wrapper svg {
+  max-width: 200px;
+  height: auto;
+}
+
+/* Strip visibility */
+#strip-1, #strip-2, #strip-3, #strip-4, #strip-5 {
+  fill: #FF7063;
+  fill-opacity: 0; /* start invisible */
+  transition: fill-opacity 0.8s ease-in-out;
+}
+
+#strip-1.active,
+#strip-2.active,
+#strip-3.active,
+#strip-4.active,
+#strip-5.active {
+  fill-opacity: 1; /* visible when active */
+}

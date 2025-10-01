@@ -23,3 +23,40 @@
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
 })();
+
+
+// map change effect
+document.addEventListener("DOMContentLoaded", () => {
+  const STRIP_PREFIX = "strip-";   
+
+  fetch("img/map.svg")
+    .then(r => r.text())
+    .then(svgText => {
+      document.querySelectorAll(".map-container").forEach(container => {
+        container.innerHTML = svgText;
+      });
+
+      const blocks = [...document.querySelectorAll(".timeline-block")];
+
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const blockIndex = blocks.indexOf(entry.target) + 1;
+          const svg = entry.target.querySelector("svg");
+          if (!svg) return;
+
+          const strip = svg.querySelector(`#${STRIP_PREFIX}${blockIndex}`);
+          if (!strip) return;
+
+          if (entry.isIntersecting) {
+            // fade in
+            strip.classList.add("active");
+          } else {
+            // fade out when leaving viewport
+            strip.classList.remove("active");
+          }
+        });
+      }, { threshold: 0.5 });
+
+      blocks.forEach(b => io.observe(b));
+    });
+});

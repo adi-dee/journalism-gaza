@@ -1,18 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=B612+Mono:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:wght@400;500;600;700&display=swap');
 
 
-body {
+
+  body {
   margin: 0;
-  background: #fef4ea;
   font-family: sans-serif;
-   font-family: "B612 Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  overflow-x: hidden;
+  background: #faf3e8;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+               'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
+
 
 /* === Intro Section (Sunset Style) === */
 .title-wrapper {
-  text-align: center;
-  margin-top: 60px;
-  margin-bottom: -60px;
+    text-align: left;
+    margin-top: 60px;
+    margin-bottom: -60px;
+    margin-left: 40%;
+    margin-right: 20px;
 }
 
 .title-wrapper h1 {
@@ -35,13 +42,13 @@ body {
 .sticky-graphic {
   position: sticky;
   top: 0;
-  height: 100vh;
+  height: 85vh;
   z-index: 2;
 }
 
 .graphic {
   width: 100%;
-  height: 100vh;
+  height: 90vh;
   position: relative;
   overflow: hidden;
 }
@@ -51,7 +58,7 @@ body {
   width: 100%;
   object-fit: cover;
   position: absolute;
-  bottom: 10%;
+  bottom: 0;
   left: 0;
   z-index: 2;
 }
@@ -83,18 +90,20 @@ body {
 
 /* Scroll text area */
 .scroll-text {
-  position: relative;
-  z-index: 1;
-  padding: 2rem 1.5rem;
-  font-size: 1.8rem;
-  line-height: 1.7;
-  max-width: 600px;
-  margin: 0 auto;
-  color: #333;
+    position: relative;
+    z-index: 1;
+    padding: 2rem 1.5rem;
+    font-size: 1.5rem;
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 0 auto;
+    margin-left: 30%;
+    color: #333;
 }
 
 .scroll-paragraph {
   margin: 40vh 0; /* spacing */
+  font-family: 'Newsreader', serif;
 }
 
 .scroll-paragraph:first-of-type {
@@ -108,6 +117,7 @@ body {
   font-size: 1.05rem;
   color: #333;
   margin-bottom: 100px;
+    background: #fef4ea;
 }
 
 .text-wrapper {
@@ -117,10 +127,20 @@ body {
 
 .text-section p {
   margin-bottom: 2rem;
+  
 }
 
 /* === Desktop Enhancements === */
 @media (min-width: 1024px) {
+
+/* this wrapper keeps margins consistent on desktop */
+.content-wrapper {
+  max-width: 1200px;     /* adjust as needed */
+  margin: 0 auto;        /* centers it globally */
+  padding: 0 16px;       /* small left/right padding so text doesn't hug the edge */
+  box-sizing: border-box;
+}
+
   .title-wrapper h1 {
     font-size: 3rem;
   }
@@ -136,6 +156,7 @@ body {
   bottom: -10%;
   left: 0;
   z-index: 2;
+  padding-bottom: 80px;
 }
 
 
@@ -165,7 +186,7 @@ body {
 /* === timeline section === */
 
 .timeline-section {
-  margin-left: 20px;
+  margin: 0 10px 50px 20px;
   position: relative;
   background: #fef4ea;
   padding: 0;
@@ -176,6 +197,7 @@ body {
 .timeline-block {
   margin-bottom: 6rem;
   position: relative;
+     font-family: "B612 Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
 }
 
 /* Sticky header */
@@ -189,20 +211,31 @@ body {
   padding-left: 0;
   padding-right: 0;
   z-index: 5;
+     font-family: "B612 Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+
 }
 
 /* partial right “border” that starts 2rem below the top */
-.timeline-section::after{
+.timeline-section::after {
   content: "";
   position: absolute;
-  top: 2.8rem;     /* start below the top */
-  left: 0;      /* stick to the right edge */
-  bottom: 0;     /* extend to the bottom */
-  width: 0;      /* so only the border shows */
-  border-left: 3px dashed gray;
+  top: 2.8rem;       /* start below the top */
+  left: 0;           /* align left */
+  bottom: 0;         /* full height */
+  width: 1px;        /* line thickness */
+
+  /* Custom dashed line */
+  background-image: repeating-linear-gradient(
+    to bottom,
+    #6A0201 0,         /* color starts */
+    #6A0201 10px,       /* dash length */
+    transparent 10px,   /* gap starts */
+    transparent 20px   /* gap length */
+  );
+
   pointer-events: none;
-  margin-bottom: 3rem;;
-  z-index: 0;    /* behind the content */
+  margin-bottom: 3rem;
+  z-index: 0;
 }
 
 /* keep your content above the line (optional) */
@@ -213,25 +246,42 @@ body {
 
 .timeline-header .date {
   padding-left: 1rem;
-  font-size: 0.9rem;
-  font-weight: bold;
+  font-size: 1rem;
   display: block;
   color: #444;
 }
 
 .timeline-header .headline {
-  font-size: 1.2rem;
-  margin: 0.3rem 0 0;
+  font-size: 1rem;
+  text-decoration: underline;
+  margin: 0.5rem 0 0;
+  padding-top: 10px;
   font-weight: 400;
   color: #333;
   text-align: right;
-  border-top: 3px dashed gray;
+  position: relative; /* needed for the pseudo-element */
+}
 
+.timeline-header .headline::before {
+  content: "";
+  position: absolute;
+  top: 0;            /* place at the top of the element */
+  left: 0;
+  width: 100%;
+  height: 1px;       /* thickness of the line */
+
+  background-image: repeating-linear-gradient(
+    to right,        /* go left to right */
+    #6A0201 0,       /* color start */
+    #6A0201 10px,     /* dash length */
+    transparent 10px, /* gap start */
+    transparent 20px /* gap length */
+  );
 }
 
 /* Content under sticky header */
 .timeline-content {
-  padding: 1.5rem 1rem;
+  padding: 20px 20px 0 30px;
   line-height: 1.6;
   font-size: 1rem;
 }
@@ -256,19 +306,11 @@ body {
 }
 
 /* === map animation === */
-.map-wrapper {
-  margin: 1rem 0;
-  text-align: center;
-}
 
-.map-wrapper svg {
-  max-width: 200px;
-  height: auto;
-}
 
 /* Strip visibility */
 #strip-1, #strip-2, #strip-3, #strip-4, #strip-5 {
-  fill: #FF7063;
+  fill: #6A0201;
   fill-opacity: 0; /* start invisible */
   transition: fill-opacity 0.8s ease-in-out;
 }
@@ -279,4 +321,47 @@ body {
 #strip-4.active,
 #strip-5.active {
   fill-opacity: 1; /* visible when active */
+}
+
+.map-wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.map-info {
+  flex: 1;   /* take left space */
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #333;
+}
+
+.map-name {
+  font-weight: bold;
+  margin: 0;
+}
+
+.map-location {
+  color: #6A0201;
+  margin: 0.3rem 0 0;
+}
+
+.map-container {
+  width: 120px;   /* adjust to fit your svg */
+  height: auto;
+  flex-shrink: 0; /* don't shrink map */
+}
+
+.map-container svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.testemonial {
+  /* font-style: italic; */
+  color: #555;
+  font-size: 1.2rem;
+  font-family: 'Newsreader', serif;
 }

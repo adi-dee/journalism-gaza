@@ -25,6 +25,7 @@
 })();
 
 
+
 // map change effect
 document.addEventListener("DOMContentLoaded", () => {
   const STRIP_PREFIX = "strip-";   
@@ -60,3 +61,30 @@ document.addEventListener("DOMContentLoaded", () => {
       blocks.forEach(b => io.observe(b));
     });
 });
+
+// helicopter animation
+window.addEventListener("scroll", () => {
+  const scrollY = window.scrollY;
+  const heliFront = document.querySelector(".heli-front");
+  const heliBack = document.querySelector(".heli-back");
+
+  if (heliFront) heliFront.style.transform = `translateY(${scrollY * 0.1}px)`;
+  if (heliBack) heliBack.style.transform = `translateY(${scrollY * 0.05}px)`;
+});
+
+
+// tent heat effect
+(() => {
+  const section = document.querySelector('.tent-scene');
+  const sun = document.querySelector('.tent-scene .sun');
+
+  function onScroll() {
+    const rect = section.getBoundingClientRect();
+    const scrolled = Math.max(0, window.innerHeight - rect.top);
+    const y = Math.min(scrolled * 0.15, 100); // slower descent
+    sun.style.transform = `translate(-50%, ${y}px)`;
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+})();
+

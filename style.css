@@ -3,14 +3,16 @@
 
 
 
-  body {
+body {
   margin: 0;
-  font-family: sans-serif;
   overflow-x: hidden;
-  background: #faf3e8;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
                'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  background: linear-gradient(to bottom, #ffffff 0%, #faf3e8 20%);
+  color: #333;
 }
+
+
 
 
 /* === Intro Section (Sunset Style) === */
@@ -36,13 +38,13 @@
 
 .intro-section {
   position: relative;
-  min-height: 220vh; /* enough scroll room */
+  height: 220vh; /* taller parent */
 }
 
 .sticky-graphic {
   position: sticky;
   top: 0;
-  height: 85vh;
+  height: 100vh; /* fill viewport */
   z-index: 2;
 }
 
@@ -53,6 +55,52 @@
   overflow: hidden;
 }
 
+.parallax-scene {
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  overflow: hidden;
+}
+
+.layer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  max-width: 1200px;
+  pointer-events: none;
+  transition: transform 0.1s linear;
+}
+
+/* Slight z-index separation to preserve stacking order */
+.layer-dust {
+  z-index: 1;
+  opacity: 0.8;
+}
+.layer-buildings {
+  z-index: 2;
+}
+.layer-mosque {
+  z-index: 3;
+}
+.layer-tents {
+  z-index: 4;
+}
+.layer-press {
+  z-index: 5;
+}
+
+/* Optional: smooth blend with background */
+.fade-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40vh;
+  background: linear-gradient(to bottom, rgba(254,244,234,0) 0%, #fef4ea 90%);
+  z-index: 10;
+}
+
+
 /* Background visual */
 .intro-visual {
   width: 100%;
@@ -62,6 +110,8 @@
   left: 0;
   z-index: 2;
 }
+
+
 
 /* Sun circle */
 .sun-wrapper {
@@ -102,7 +152,7 @@
 }
 
 .scroll-paragraph {
-  margin: 40vh 0; /* spacing */
+  margin-bottom: 20vh;
   font-family: 'Newsreader', serif;
 }
 
@@ -128,59 +178,6 @@
 .text-section p {
   margin-bottom: 2rem;
   
-}
-
-/* === Desktop Enhancements === */
-@media (min-width: 1024px) {
-
-/* this wrapper keeps margins consistent on desktop */
-.content-wrapper {
-  max-width: 1200px;     /* adjust as needed */
-  margin: 0 auto;        /* centers it globally */
-  padding: 0 16px;       /* small left/right padding so text doesn't hug the edge */
-  box-sizing: border-box;
-}
-
-  .title-wrapper h1 {
-    font-size: 3rem;
-  }
-
-  .title-wrapper h2 {
-    font-size: 1.5rem;
-  }
-
-  .intro-visual {
-  width: 100%;
-  object-fit: cover;
-  position: absolute;
-  bottom: -10%;
-  left: 0;
-  z-index: 2;
-  padding-bottom: 80px;
-}
-
-
-  .scroll-text {
-    font-size: 1.3rem;
-    max-width: 700px;
-  }
-
-  .scroll-paragraph {
-    margin: 30vh 0; /* less empty scroll on desktop */
-  }
-
-  .scroll-paragraph:first-of-type {
-    margin-top: -10vh; /* show earlier */
-  }
-
-  .sun {
-    width: 200px;
-    height: 200px;
-  }
-
-  .sun-wrapper {
-    left: 25%;
-  }
 }
 
 /* === timeline section === */
@@ -289,8 +286,7 @@
 .timeline-content img,
 .timeline-content .illustration-placeholder {
   display: block;
-  margin: 2rem auto;
-  max-width: 200px;
+    max-width: 100%;
 }
 
 /* Optional illustration placeholder */
@@ -383,4 +379,186 @@
     color: #6A0201;
   }
   
-  /* *Update from 2025 - As for January 2025 those of us watching from within the besieged Gaza Strip, the situation has been nothing less than terrifying. Shortly after the attack began, Israel declared a state of war, initiating a relentless barra.More factual text */
+  /* illustrations apachi */
+.helicopter-scene {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* Shared styles */
+.helicopter {
+  will-change: transform;
+  animation: float 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Front (bigger) helicopter */
+.heli-front {
+  z-index: 3;
+  height: 100%;
+}
+
+/* Back (smaller) helicopter */
+.heli-back {
+  z-index: 2;
+  opacity: 0.8;
+  animation-delay: 1s;
+  position: absolute;
+  top:0;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Tent scene */
+.tent-scene {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+/* Group for sun + lines */
+.sun-group {
+  position: absolute;
+  top: 20%;
+  left: 60%;
+  transform: translateX(-50%);
+  z-index: 0; /* behind tent */
+}
+
+/* 🌞 Sun */
+.sun {
+  width: 70px;
+  height: 70px;
+  background: #6A0201;
+  border-radius: 50%;
+  filter: blur(1px);
+  opacity: 0.95;
+  position: relative;
+  z-index: 1; /* above lines but below tent */
+  transition: transform 0.3s ease-out;
+}
+
+/* 🔥 Heat lines — now tied to sun */
+.heat-lines {
+      position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 450%;
+    opacity: 0.8;
+    z-index: 0;
+}
+
+.heat-lines img {
+  width: 100%;
+  stroke: #6A0201;
+}
+
+.wave1 {
+  animation: waveMove1 9s ease-in-out infinite;
+}
+
+.wave2 {
+  animation: waveMove2 11s ease-in-out infinite;
+  opacity: 0.6;
+}
+
+@keyframes waveMove1 {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, -2px); }
+}
+
+@keyframes waveMove2 {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, 2px); }
+}
+
+.tent {
+  width: 100%;
+  z-index: 2;
+}
+
+
+
+/* === Desktop Enhancements === */
+@media (min-width: 1024px) {
+
+/* this wrapper keeps margins consistent on desktop */
+.content-wrapper {
+    max-width: 960px; /* narrower, more editorial */
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .scroll-text {
+    max-width: 640px;
+    margin-left: 28%;
+  }
+
+  .text-wrapper {
+    max-width: 640px;
+  }
+
+  .timeline-section {
+    margin: 0 5% 60px 10%;
+  }
+
+  .timeline-header {
+    padding: 1rem 0;
+  }
+  
+  .title-wrapper h1 {
+    font-size: 3rem;
+  }
+
+  .title-wrapper h2 {
+    font-size: 1.5rem;
+  }
+
+  .intro-visual {
+  width: 100%;
+  object-fit: cover;
+  position: absolute;
+  bottom: -10%;
+  left: 0;
+  z-index: 2;
+  padding-bottom: 80px;
+}
+
+
+  .scroll-text {
+    font-size: 1.3rem;
+    max-width: 700px;
+  }
+
+  .scroll-paragraph {
+    margin: 30vh 0; /* less empty scroll on desktop */
+  }
+
+  .scroll-paragraph:first-of-type {
+    margin-top: -10vh; /* show earlier */
+  }
+
+  .sun {
+    width: 200px;
+    height: 200px;
+  }
+
+  .sun-wrapper {
+    left: 25%;
+  }
+
+  .tent {
+    width: 50%;
+    margin: 0 auto;
+  }
+}

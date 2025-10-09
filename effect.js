@@ -48,10 +48,10 @@ document.addEventListener("scroll", () => {
 // map change effect
 document.addEventListener("DOMContentLoaded", () => {
   const REGION_TO_STRIP = {
-    "jabalia": "strip-1",
-    "gaza": "strip-2",
-    "khan-younis": "strip-4",
-    "rafah": "strip-5"
+    "rafah": "strip-1",
+    "khan-younis": "strip-2",
+    "gaza": "strip-4",
+    "jabalia": "strip-5"
   };
 
   fetch("img/map.svg")

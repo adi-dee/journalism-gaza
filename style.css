@@ -74,7 +74,7 @@ body {
 /* Slight z-index separation to preserve stacking order */
 .layer-dust {
   z-index: 1;
-  opacity: 0.8;
+  /* opacity: 0.8; */
 }
 .layer-buildings {
   z-index: 2;
@@ -247,7 +247,7 @@ body {
   color: #444;
 }
 
-.timeline-header .headline {
+.timeline-header .headline  {
   font-size: 1rem;
   text-decoration: underline;
   margin: 0.5rem 0 0;
@@ -256,6 +256,41 @@ body {
   color: #333;
   text-align: right;
   position: relative; /* needed for the pseudo-element */
+}
+
+
+/* Add link styling inside headline */
+.timeline-header .headline a {
+  color: inherit;                 /* inherit #333 */
+  text-decoration: underline;     /* keep underline */
+  text-decoration-thickness: 1px; /* makes it clean */
+  text-underline-offset: 2px;     /* adds spacing */
+  transition: color 0.2s ease;
+}
+
+/* Hover/focus state for clarity */
+.timeline-header .headline a:hover,
+.timeline-header .headline a:focus {
+  color: #6A0201;
+  text-decoration-color: #6A0201;
+}
+
+/* Keep your top dashed line */
+.timeline-header .headline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+
+  background-image: repeating-linear-gradient(
+    to right,
+    #6A0201 0,
+    #6A0201 10px,
+    transparent 10px,
+    transparent 20px
+  );
 }
 
 .timeline-header .headline::before {

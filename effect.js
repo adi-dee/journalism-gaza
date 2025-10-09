@@ -37,7 +37,7 @@ document.addEventListener("scroll", () => {
   const progress = Math.min(Math.max((scrollTop - sectionTop) / (sectionHeight - window.innerHeight), 0), 1);
 
   // each layer moves at a slightly different speed (up/down)
-  document.querySelector(".layer-dust").style.transform = `translateY(${progress * -40}px)`;
+  document.querySelector(".layer-dust").style.transform = `translateY(${progress * 40}px)`;
   document.querySelector(".layer-buildings").style.transform = `translateY(${progress * -25}px)`;
   document.querySelector(".layer-mosque").style.transform = `translateY(${progress * -15}px)`;
   document.querySelector(".layer-tents").style.transform = `translateY(${progress * -8}px)`;
@@ -47,7 +47,12 @@ document.addEventListener("scroll", () => {
 
 // map change effect
 document.addEventListener("DOMContentLoaded", () => {
-  const STRIP_PREFIX = "strip-";   
+  const REGION_TO_STRIP = {
+    "jabalia": "strip-1",
+    "gaza": "strip-2",
+    "khan-younis": "strip-4",
+    "rafah": "strip-5"
+  };
 
   fetch("img/map.svg")
     .then(r => r.text())
@@ -60,20 +65,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const io = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-          const blockIndex = blocks.indexOf(entry.target) + 1;
+          const content = entry.target.querySelector(".timeline-content");
+          if (!content) return;
+
+          const regionList = (content.dataset.region || "")
+            .split(/[,\s]+/) // split by commas or spaces
+            .map(r => r.trim().toLowerCase())
+            .filter(Boolean);
+
           const svg = entry.target.querySelector("svg");
           if (!svg) return;
 
-          const strip = svg.querySelector(`#${STRIP_PREFIX}${blockIndex}`);
-          if (!strip) return;
-
-          if (entry.isIntersecting) {
-            // fade in
-            strip.classList.add("active");
-          } else {
-            // fade out when leaving viewport
-            strip.classList.remove("active");
+          // Remove previous actives when out of view
+          if (!entry.isIntersecting) {
+            svg.querySelectorAll(".active").forEach(s => s.classList.remove("active"));
+            return;
           }
+
+          // When visible — activate all matching strips
+          regionList.forEach(region => {
+            const stripId = REGION_TO_STRIP[region];
+            if (!stripId) return;
+            const strip = svg.querySelector(`#${stripId}`);
+            if (strip) strip.classList.add("active");
+          });
         });
       }, { threshold: 0.5 });
 

@@ -402,6 +402,46 @@ body {
   color: #0E2229;
   }
 
+/* Citations / Pull Quotes */
+.testemonial.citation {
+  font-family: 'Newsreader', serif;  /* elegant serif (already imported) */
+  font-style: italic;
+  font-size: 1.4rem;
+  line-height: 1.8;
+  color: #4A0C0B; /* deep muted red tone for warmth */
+  margin: 2.5rem 0;
+  text-align: center;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+/* Optional: decorative quotation marks */
+.testemonial.citation::before,
+.testemonial.citation::after {
+  content: "“";
+  font-family: Georgia, serif;
+  font-size: 5rem;
+  position: absolute;
+  color: #CBB6A8;
+  opacity: 0.4;
+  line-height: 0;
+}
+
+.testemonial.citation::before {
+  top: 20px;
+  left: -10px;
+  content: "“";
+}
+
+.testemonial.citation::after {
+  bottom: -10px;
+  /* right: -25px; */
+  content: "”";
+}
+
+
   .update-text {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
                   'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
@@ -525,6 +565,18 @@ body {
 
 /* === Desktop Enhancements === */
 @media (min-width: 1024px) {
+
+  .testemonial.citation::before {
+  top: 0;
+  left: -25px;
+  content: "“";
+}
+
+.testemonial.citation::after {
+  bottom: -10px;
+  right: -25px;
+  content: "”";
+}
 
   .intro-section {
   height: 270vh; /* taller parent */

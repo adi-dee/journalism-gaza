@@ -38,7 +38,7 @@ body {
 
 .intro-section {
   position: relative;
-  height: 220vh; /* taller parent */
+  height: 230vh; /* taller parent */
 }
 
 .sticky-graphic {
@@ -525,6 +525,10 @@ body {
 
 /* === Desktop Enhancements === */
 @media (min-width: 1024px) {
+
+  .intro-section {
+  height: 270vh; /* taller parent */
+}
 
 /* this wrapper keeps margins consistent on desktop */
 .content-wrapper {

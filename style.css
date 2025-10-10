@@ -494,73 +494,34 @@ body {
 }
 
 /* Tent scene */
-.tent-scene {
+
+.aid-illustration {
   position: relative;
-  width: 100%;
-  height: auto;
 }
 
-/* Group for sun + lines */
-.sun-group {
+.aid-background {
   position: absolute;
-  top: 20%;
-  left: 60%;
-  transform: translateX(-50%);
-  z-index: 0; /* behind tent */
+  z-index: -1;
 }
 
-/* 🌞 Sun */
-.sun {
-  width: 70px;
-  height: 70px;
-  background: #6A0201;
-  border-radius: 50%;
-  filter: blur(1px);
-  opacity: 0.95;
+.aid-foreground {
+  position: absolute;
+  top: 0;
+}
+
+.tent-illustration {
   position: relative;
-  z-index: 1; /* above lines but below tent */
-  transition: transform 0.3s ease-out;
 }
 
-/* 🔥 Heat lines — now tied to sun */
-.heat-lines {
-      position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 450%;
-    opacity: 0.8;
-    z-index: 0;
+.tent-background {
+  position: absolute;
+  z-index: -1;
 }
 
-.heat-lines img {
-  width: 100%;
-  stroke: #6A0201;
+.tent-foreground {
+  position: absolute;
+  top: 0;
 }
-
-.wave1 {
-  animation: waveMove1 9s ease-in-out infinite;
-}
-
-.wave2 {
-  animation: waveMove2 11s ease-in-out infinite;
-  opacity: 0.6;
-}
-
-@keyframes waveMove1 {
-  0%, 100% { transform: translate(-50%, 0); }
-  50% { transform: translate(-50%, -2px); }
-}
-
-@keyframes waveMove2 {
-  0%, 100% { transform: translate(-50%, 0); }
-  50% { transform: translate(-50%, 2px); }
-}
-
-.tent {
-  width: 100%;
-  z-index: 2;
-}
-
 
 
 /* === Desktop Enhancements === */
@@ -647,8 +608,31 @@ body {
     left: 25%;
   }
 
-  .tent {
-    width: 50%;
-    margin: 0 auto;
+.scene {
+    max-width: 500px;
+    margin: 3rem auto;
   }
+
+  /* Allow for slightly deeper separation visually */
+  .layer-back {
+    opacity: 0.9;
+    filter: blur(0.3px);
+  }
+
+  .layer-front {
+    opacity: 1;
+    transform-origin: center;
+  }
+
+  .illu-wrapper {
+    max-width: 50%;
+    margin: 3rem auto;
+  }
+
+  .illu-back, .illu-front {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+
 }

@@ -107,18 +107,31 @@ window.addEventListener("scroll", () => {
 });
 
 
-// tent heat effect
-(() => {
-  const section = document.querySelector('.tent-scene');
-  const sun = document.querySelector('.tent-scene .sun');
+// aid and tent parallax
 
-  function onScroll() {
-    const rect = section.getBoundingClientRect();
-    const scrolled = Math.max(0, window.innerHeight - rect.top);
-    const y = Math.min(scrolled * 0.15, 100); // slower descent
-    sun.style.transform = `translate(-50%, ${y}px)`;
-  }
+// Parallax motion by changing CSS position (more visible version)
+window.addEventListener("scroll", () => {
+  const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
+  const moveY = isDesktop ? 120 : 60; // vertical motion range in px
+  const moveX = isDesktop ? 60 : 30;  // horizontal motion range in px
 
-  window.addEventListener('scroll', onScroll, { passive: true });
-})();
+  document.querySelectorAll(".aid-illustration, .tent-illustration").forEach(scene => {
+    const rect = scene.getBoundingClientRect();
+    const progress = (window.innerHeight / 2 - rect.top) / window.innerHeight; // from -1 to +1
+
+    const background1 = scene.querySelector(".tent-background");
+    const background2 = scene.querySelector(".aid-background");
+
+    // Background drifts down-right
+    if (background1) {
+      background1.style.top = `${progress * moveY}px`;
+    }
+
+     if (background2) {
+      background2.style.top = `${progress * moveY / 6 }px`;
+    }
+  });
+});
+
+
 

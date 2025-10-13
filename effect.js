@@ -317,8 +317,6 @@ window.addEventListener("scroll", () => {
 
 
 // closing scene parallax
-
-
 (() => {
   const section = document.querySelector(".closing-scene");
   const layers = document.querySelectorAll(".closing-layer");
@@ -328,19 +326,21 @@ window.addEventListener("scroll", () => {
     if (!section) return;
 
     const rect = section.getBoundingClientRect();
-    const scrollProgress = Math.min(Math.max(-rect.top / (rect.height - window.innerHeight), 0), 1);
+    const scrollProgress = Math.min(
+      Math.max(-rect.top / (rect.height - window.innerHeight), 0),
+      1
+    );
 
-    // vertical parallax: subtle upward movement by depth
+    // 🌊 vertical parallax — reversed direction
     layers.forEach((layer, i) => {
-      const speed = (i + 1) * 5; // deeper layers move less
-      layer.style.transform = `translateY(${scrollProgress * -speed}px)`;
+      const speed = (i + 1) * 5;
+      layer.style.transform = `translateY(${scrollProgress * speed}px)`;
     });
 
-    // horizontal boat drift
+    // 🚤 horizontal boat drift — now always goes LEFT when scrolling down
     boats.forEach((boat, i) => {
-      const drift = (i % 2 === 0 ? 1 : -1) * scrollProgress * 60; // move opposite directions
-      boat.style.transform += ` translateX(${drift}px)`;
+      const drift = (i % 2 === 0 ? -1 : 1) * scrollProgress * 60; // flipped direction
+      boat.style.transform = `translateX(${drift}px)`;
     });
   });
 })();
-

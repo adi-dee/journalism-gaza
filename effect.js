@@ -191,6 +191,70 @@ window.addEventListener("scroll", () => {
   });
 });
 
+// eye on rafah scene
+
+(() => {
+  const scene = document.querySelector(".eye-illustration");
+  const eye = scene?.querySelector(".eye-layer.eyeball");
+  if (!scene || !eye) return;
+
+  const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+  let currentX = 0;
+  let currentY = 0;
+  let targetX = 0;
+  let targetY = 0;
+
+  // Adjust movement ranges and smoothing
+  const rangeX = isMobile ? 50 : 120;   // wide horizontal motion
+  const rangeY = isMobile ? 10 : 40;    // downward depth
+  const smoothness = isMobile ? 0.08 : 0.05; // gentle smoothing
+
+  const updateEye = () => {
+    currentX += (targetX - currentX) * smoothness;
+    currentY += (targetY - currentY) * smoothness;
+    eye.style.transform = `translate(${currentX}px, ${currentY}px)`;
+    requestAnimationFrame(updateEye);
+  };
+
+  const moveEye = (x, y) => {
+    const rect = scene.getBoundingClientRect();
+    const relX = (x - rect.left) / rect.width - 0.5;
+    const relY = (y - rect.top) / rect.height - 0.5;
+
+    targetX = relX * rangeX;
+    // 👇 Only allow movement from center (0) downward
+    targetY = Math.max(0, relY * rangeY);
+  };
+
+  if (isMobile) {
+    // Touch tracking for mobile
+    scene.addEventListener("touchmove", e => {
+      const t = e.touches[0];
+      if (t) moveEye(t.clientX, t.clientY);
+    }, { passive: true });
+
+    scene.addEventListener("touchstart", e => {
+      const t = e.touches[0];
+      if (t) moveEye(t.clientX, t.clientY);
+    }, { passive: true });
+  } else {
+    // Desktop tracking with smooth follow
+    let mouseX = 0, mouseY = 0;
+
+    scene.addEventListener("mousemove", e => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      moveEye(mouseX, mouseY);
+    });
+
+
+  }
+
+  updateEye();
+})();
+
+
 // closing scene parallax
 
 

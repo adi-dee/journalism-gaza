@@ -44,6 +44,30 @@ document.addEventListener("scroll", () => {
   // document.querySelector(".layer-press").style.transform = `translateX(${progress * -10}px)`; // moves opposite for depth
 });
  
+// opening swap
+
+(() => {
+  const mobileQuery = window.matchMedia("(max-width: 768px)");
+  const layers = document.querySelectorAll(".intro-section .layer");
+
+  const swapImages = (isMobile) => {
+    layers.forEach(img => {
+      const src = img.getAttribute("src");
+      const base = src.replace(/-m(\.[a-z]+)$/i, "$1"); // remove -m if exists
+      const ext = base.split(".").pop();
+      const baseName = base.substring(0, base.lastIndexOf("."));
+      const newSrc = isMobile ? `${baseName}-m.${ext}` : `${baseName}.${ext}`;
+      if (src !== newSrc) img.setAttribute("src", newSrc);
+    });
+  };
+
+  // run on load
+  swapImages(mobileQuery.matches);
+
+  // run on resize / device rotation
+  mobileQuery.addEventListener("change", e => swapImages(e.matches));
+})();
+
 
 // map change effect
 document.addEventListener("DOMContentLoaded", () => {

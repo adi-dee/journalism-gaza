@@ -107,8 +107,66 @@ document.addEventListener("DOMContentLoaded", () => {
 // });
 
 
-// aid and tent parallax
+// journalist target effect
 
+(() => {
+  const scene = document.querySelector(".press-illustration");
+  const target = scene?.querySelector(".press-layer.target");
+
+  if (!scene || !target) return;
+
+  let currentX = 0;
+  let currentY = 0;
+  let targetX = 0;
+  let targetY = 0;
+
+  const maxRange = 100; // wider total movement range (±100px)
+  const smoothness = 0.07; // smaller = slower, smoother motion
+
+  const updatePosition = () => {
+    // ease toward the target
+    currentX += (targetX - currentX) * smoothness;
+    currentY += (targetY - currentY) * smoothness;
+
+    // subtle inertia / overshoot correction
+    const inertia = 0.98;
+    currentX *= inertia;
+    currentY *= inertia;
+
+    target.style.transform = `translate(${currentX}px, ${currentY}px)`;
+    requestAnimationFrame(updatePosition);
+  };
+
+  const moveTarget = (x, y) => {
+    const rect = scene.getBoundingClientRect();
+    const relX = (x - rect.left) / rect.width - 0.5;
+    const relY = (y - rect.top) / rect.height - 0.5;
+
+    // map position to a wider range
+    targetX = relX * maxRange;
+    targetY = relY * maxRange;
+  };
+
+  // Mouse movement (desktop)
+  scene.addEventListener("mousemove", e => moveTarget(e.clientX, e.clientY));
+
+  // Touch movement (mobile)
+  scene.addEventListener("touchmove", e => {
+    const touch = e.touches[0];
+    if (touch) moveTarget(touch.clientX, touch.clientY);
+  }, { passive: true });
+
+  // Reset to center slowly when leaving
+  scene.addEventListener("mouseleave", () => {
+    targetX = 0;
+    targetY = 0;
+  });
+
+  updatePosition();
+})();
+
+
+// aid and tent parallax
 // Parallax motion by changing CSS position (more visible version)
 window.addEventListener("scroll", () => {
   const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
@@ -132,6 +190,8 @@ window.addEventListener("scroll", () => {
     }
   });
 });
+
+// closing scene parallax
 
 
 (() => {

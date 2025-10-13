@@ -8,7 +8,7 @@ body {
   overflow-x: hidden;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
                'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  background: linear-gradient(to bottom, #ffffff 0%,  #faf3e8 20%, #faf3e8 80%,  #060531 90%, #060531 100%);
+  background: linear-gradient(to bottom, #ffffff 0%,  #faf3e8 20%, #faf3e8 93%,  #060531 98%, #060531 100%);
   color: #333;
 }
 
@@ -523,6 +523,48 @@ body {
   top: 0;
 }
 
+/* === Press Illustration Scene === */
+.press-illustration {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.press-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.press-layer.bg { z-index: 1; 
+position: relative;}
+
+
+/* Layering */
+.press-layer.reporter { z-index: 2; }
+.press-layer.target {
+  z-index: 3;
+  width: 40%;
+  height: auto;
+  top: 30%;
+  left: 30%;
+  transition: transform 0.15s ease-out;
+}
+
+/* Optional subtle hover scaling for the scene */
+@media (hover: hover) {
+  .press-illustration:hover .press-layer.target {
+    transform: scale(1.05);
+  }
+}
+
+
 
 /* === Closing Section === */
 .closing-scene {
@@ -589,13 +631,11 @@ body {
 }
 
 
-
-
-
-
-
 /* === Desktop Enhancements === */
 @media (min-width: 1024px) {
+body {
+    background: linear-gradient(to bottom, #ffffff 0%,  #faf3e8 20%, #faf3e8 90%,  #060531 95%, #060531 100%);
+ }
 
   .testemonial.citation::before {
   top: 0;
@@ -678,7 +718,9 @@ body {
     left: 25%;
   }
 
-
+.press-illustration {
+  width: 60%;
+}
 
   /* Allow for slightly deeper separation visually */
   .layer-back {

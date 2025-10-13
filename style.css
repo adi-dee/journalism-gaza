@@ -8,7 +8,7 @@ body {
   overflow-x: hidden;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
                'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  background: linear-gradient(to bottom, #ffffff 0%, #faf3e8 20%);
+  background: linear-gradient(to bottom, #ffffff 0%,  #faf3e8 20%, #faf3e8 80%,  #060531 90%, #060531 100%);
   color: #333;
 }
 
@@ -524,6 +524,76 @@ body {
 }
 
 
+/* === Closing Section === */
+.closing-scene {
+  position: relative;
+  height: 100%;
+  /* background: linear-gradient(to bottom, #fdf6ef 0%, #06082d 20%); */
+  overflow: hidden;
+  margin-bottom: 200px;
+}
+
+/* Wrapper that controls perspective */
+.closing-parallax {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
+}
+
+.closing-layer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  max-width: none;
+  transition: transform 0.1s linear;
+  pointer-events: none;
+}
+
+/* Depth order */
+.layer-far { z-index: 1; opacity: 0.9; }
+.layer-boat { z-index: 2; }
+.layer-people { z-index: 3; }
+.layer-cliff { z-index: 4; }
+
+/* Boats offset (starting points) */
+.boat1 { left: 10%; width: 30%; }
+.boat2 { left: 40%; width: 20%; }
+.boat3 { left: 70%; width: 15%; }
+
+/* Text overlay */
+.closing-text {
+  position: relative;
+  z-index: 5;
+  padding: 4rem 1.5rem;
+  color: #fdf6ef;
+  font-family: "B612 Mono", monospace;
+  font-size: 1rem;
+  line-height: 1.7;
+  text-align: left;
+}
+
+.credits {
+  color: #fdf6ef;
+  font-family: "B612 Mono", monospace;
+  margin-top: 3rem;
+  font-weight: 400;
+  opacity: 0.8;
+  text-align: right;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 5;
+}
+
+
+
+
+
+
+
 /* === Desktop Enhancements === */
 @media (min-width: 1024px) {
 
@@ -608,10 +678,7 @@ body {
     left: 25%;
   }
 
-.scene {
-    max-width: 500px;
-    margin: 3rem auto;
-  }
+
 
   /* Allow for slightly deeper separation visually */
   .layer-back {
@@ -634,5 +701,11 @@ body {
     transform: translateX(-50%);
   }
 
+    .closing-text {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: left;
+  }
 
 }

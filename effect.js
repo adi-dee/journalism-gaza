@@ -97,14 +97,14 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // helicopter animation
-window.addEventListener("scroll", () => {
-  const scrollY = window.scrollY;
-  const heliFront = document.querySelector(".heli-front");
-  const heliBack = document.querySelector(".heli-back");
+// window.addEventListener("scroll", () => {
+//   const scrollY = window.scrollY;
+//   const heliFront = document.querySelector(".heli-front");
+//   const heliBack = document.querySelector(".heli-back");
 
-  if (heliFront) heliFront.style.transform = `translateY(${scrollY * 0.1}px)`;
-  if (heliBack) heliBack.style.transform = `translateY(${scrollY * 0.05}px)`;
-});
+//   if (heliFront) heliFront.style.transform = `translateY(${scrollY * 0.1}px)`;
+//   if (heliBack) heliBack.style.transform = `translateY(${scrollY * 0.05}px)`;
+// });
 
 
 // aid and tent parallax
@@ -134,4 +134,28 @@ window.addEventListener("scroll", () => {
 });
 
 
+(() => {
+  const section = document.querySelector(".closing-scene");
+  const layers = document.querySelectorAll(".closing-layer");
+  const boats = document.querySelectorAll(".layer-boat");
+
+  window.addEventListener("scroll", () => {
+    if (!section) return;
+
+    const rect = section.getBoundingClientRect();
+    const scrollProgress = Math.min(Math.max(-rect.top / (rect.height - window.innerHeight), 0), 1);
+
+    // vertical parallax: subtle upward movement by depth
+    layers.forEach((layer, i) => {
+      const speed = (i + 1) * 5; // deeper layers move less
+      layer.style.transform = `translateY(${scrollProgress * -speed}px)`;
+    });
+
+    // horizontal boat drift
+    boats.forEach((boat, i) => {
+      const drift = (i % 2 === 0 ? 1 : -1) * scrollProgress * 60; // move opposite directions
+      boat.style.transform += ` translateX(${drift}px)`;
+    });
+  });
+})();
 

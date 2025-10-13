@@ -107,60 +107,73 @@ document.addEventListener("DOMContentLoaded", () => {
 // });
 
 
-// journalist target effect
-
 (() => {
   const scene = document.querySelector(".press-illustration");
   const target = scene?.querySelector(".press-layer.target");
-
   if (!scene || !target) return;
 
   let currentX = 0;
   let currentY = 0;
   let targetX = 0;
   let targetY = 0;
+  let isVisible = false; // 🔥 visibility tracker
 
-  const maxRange = 100; // wider total movement range (±100px)
-  const smoothness = 0.07; // smaller = slower, smoother motion
+  const maxRange = 80;
+  const smoothness = 0.07;
 
   const updatePosition = () => {
-    // ease toward the target
+    if (!isVisible) {
+      // slowly return to center when not visible
+      targetX *= 0.9;
+      targetY *= 0.9;
+    }
+
     currentX += (targetX - currentX) * smoothness;
     currentY += (targetY - currentY) * smoothness;
-
-    // subtle inertia / overshoot correction
-    const inertia = 0.98;
-    currentX *= inertia;
-    currentY *= inertia;
-
     target.style.transform = `translate(${currentX}px, ${currentY}px)`;
     requestAnimationFrame(updatePosition);
   };
 
   const moveTarget = (x, y) => {
+    if (!isVisible) return; // ⛔ ignore movement when out of view
     const rect = scene.getBoundingClientRect();
-    const relX = (x - rect.left) / rect.width - 0.5;
-    const relY = (y - rect.top) / rect.height - 0.5;
-
-    // map position to a wider range
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    const relX = (x - centerX) / rect.width;
+    const relY = (y - centerY) / rect.height;
     targetX = relX * maxRange;
     targetY = relY * maxRange;
   };
 
-  // Mouse movement (desktop)
-  scene.addEventListener("mousemove", e => moveTarget(e.clientX, e.clientY));
+  // 🌗 Visibility watcher
+  const io = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => (isVisible = entry.isIntersecting));
+    },
+    { threshold: 0.1 } // only counts as visible when ~10% on screen
+  );
+  io.observe(scene);
 
-  // Touch movement (mobile)
-  scene.addEventListener("touchmove", e => {
-    const touch = e.touches[0];
-    if (touch) moveTarget(touch.clientX, touch.clientY);
-  }, { passive: true });
+  // 🖱️ Desktop
+  window.addEventListener("mousemove", e => moveTarget(e.clientX, e.clientY));
 
-  // Reset to center slowly when leaving
-  scene.addEventListener("mouseleave", () => {
-    targetX = 0;
-    targetY = 0;
-  });
+  // 📱 Mobile
+  window.addEventListener(
+    "touchmove",
+    e => {
+      const t = e.touches[0];
+      if (t) moveTarget(t.clientX, t.clientY);
+    },
+    { passive: true }
+  );
+  window.addEventListener(
+    "touchstart",
+    e => {
+      const t = e.touches[0];
+      if (t) moveTarget(t.clientX, t.clientY);
+    },
+    { passive: true }
+  );
 
   updatePosition();
 })();
@@ -192,7 +205,6 @@ window.addEventListener("scroll", () => {
 });
 
 // eye on rafah scene
-
 (() => {
   const scene = document.querySelector(".eye-illustration");
   const eye = scene?.querySelector(".eye-layer.eyeball");
@@ -204,13 +216,20 @@ window.addEventListener("scroll", () => {
   let currentY = 0;
   let targetX = 0;
   let targetY = 0;
+  let isVisible = false; // 🔥 track visibility
 
-  // ✨ Adjusted motion ranges
-  const rangeX = isMobile ? 50 : 60;   // smaller horizontal movement for desktop
-  const rangeY = isMobile ? 10 : 20;   // gentler downward movement
-  const smoothness = isMobile ? 0.08 : 0.05; // smooth follow
+  // ✨ Motion tuning
+  const rangeX = isMobile ? 50 : 60;    // horizontal movement range
+  const rangeY = isMobile ? 10 : 20;    // downward movement range
+  const smoothness = isMobile ? 0.08 : 0.05; // smoother on desktop
 
   const updateEye = () => {
+    // when not visible, ease back to center
+    if (!isVisible) {
+      targetX *= 0.9;
+      targetY *= 0.9;
+    }
+
     currentX += (targetX - currentX) * smoothness;
     currentY += (targetY - currentY) * smoothness;
     eye.style.transform = `translate(${currentX}px, ${currentY}px)`;
@@ -218,6 +237,7 @@ window.addEventListener("scroll", () => {
   };
 
   const moveEye = (x, y) => {
+    if (!isVisible) return; // 🧠 only move if visible
     const rect = scene.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
@@ -225,12 +245,20 @@ window.addEventListener("scroll", () => {
     const relX = (x - centerX) / rect.width;
     const relY = (y - centerY) / rect.height;
 
-    // Move from center: smaller desktop range keeps eyeball within the eyelid
     targetX = relX * rangeX;
-    targetY = Math.max(0, relY * rangeY); // only downward
+    targetY = Math.max(0, relY * rangeY); // only from middle downward
   };
 
-  // Desktop — track anywhere on screen
+  // 🌗 Visibility watcher
+  const io = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => (isVisible = entry.isIntersecting));
+    },
+    { threshold: 0.1 } // only active when at least 10% is visible
+  );
+  io.observe(scene);
+
+  // 🖱️ Desktop — global tracking
   if (!isMobile) {
     window.addEventListener("mousemove", e => moveEye(e.clientX, e.clientY));
     window.addEventListener("mouseleave", () => {
@@ -239,17 +267,25 @@ window.addEventListener("scroll", () => {
     });
   }
 
-  // Mobile — track touch anywhere
+  // 📱 Mobile — global touch tracking
   if (isMobile) {
-    window.addEventListener("touchmove", e => {
-      const t = e.touches[0];
-      if (t) moveEye(t.clientX, t.clientY);
-    }, { passive: true });
+    window.addEventListener(
+      "touchmove",
+      e => {
+        const t = e.touches[0];
+        if (t) moveEye(t.clientX, t.clientY);
+      },
+      { passive: true }
+    );
 
-    window.addEventListener("touchstart", e => {
-      const t = e.touches[0];
-      if (t) moveEye(t.clientX, t.clientY);
-    }, { passive: true });
+    window.addEventListener(
+      "touchstart",
+      e => {
+        const t = e.touches[0];
+        if (t) moveEye(t.clientX, t.clientY);
+      },
+      { passive: true }
+    );
   }
 
   updateEye();

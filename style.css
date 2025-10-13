@@ -394,6 +394,25 @@ body {
   margin: 0;
 }
 
+.map-name a {
+  color: inherit;
+  font-weight: inherit;
+  text-decoration: none;
+}
+
+.map-name a:hover {
+  color: rgb(68, 68, 68);
+    text-decoration: underline;
+}
+
+.map-name a:focus,
+.map-name a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+
 .map-location {
   color: #6A0201;
   margin: 0.3rem 0 0;

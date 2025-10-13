@@ -205,10 +205,10 @@ window.addEventListener("scroll", () => {
   let targetX = 0;
   let targetY = 0;
 
-  // Adjust movement ranges and smoothing
-  const rangeX = isMobile ? 50 : 120;   // wide horizontal motion
-  const rangeY = isMobile ? 10 : 40;    // downward depth
-  const smoothness = isMobile ? 0.08 : 0.05; // gentle smoothing
+  // ✨ Adjusted motion ranges
+  const rangeX = isMobile ? 50 : 60;   // smaller horizontal movement for desktop
+  const rangeY = isMobile ? 10 : 20;   // gentler downward movement
+  const smoothness = isMobile ? 0.08 : 0.05; // smooth follow
 
   const updateEye = () => {
     currentX += (targetX - currentX) * smoothness;
@@ -219,36 +219,37 @@ window.addEventListener("scroll", () => {
 
   const moveEye = (x, y) => {
     const rect = scene.getBoundingClientRect();
-    const relX = (x - rect.left) / rect.width - 0.5;
-    const relY = (y - rect.top) / rect.height - 0.5;
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
 
+    const relX = (x - centerX) / rect.width;
+    const relY = (y - centerY) / rect.height;
+
+    // Move from center: smaller desktop range keeps eyeball within the eyelid
     targetX = relX * rangeX;
-    // 👇 Only allow movement from center (0) downward
-    targetY = Math.max(0, relY * rangeY);
+    targetY = Math.max(0, relY * rangeY); // only downward
   };
 
-  if (isMobile) {
-    // Touch tracking for mobile
-    scene.addEventListener("touchmove", e => {
-      const t = e.touches[0];
-      if (t) moveEye(t.clientX, t.clientY);
-    }, { passive: true });
-
-    scene.addEventListener("touchstart", e => {
-      const t = e.touches[0];
-      if (t) moveEye(t.clientX, t.clientY);
-    }, { passive: true });
-  } else {
-    // Desktop tracking with smooth follow
-    let mouseX = 0, mouseY = 0;
-
-    scene.addEventListener("mousemove", e => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-      moveEye(mouseX, mouseY);
+  // Desktop — track anywhere on screen
+  if (!isMobile) {
+    window.addEventListener("mousemove", e => moveEye(e.clientX, e.clientY));
+    window.addEventListener("mouseleave", () => {
+      targetX = 0;
+      targetY = 0;
     });
+  }
 
+  // Mobile — track touch anywhere
+  if (isMobile) {
+    window.addEventListener("touchmove", e => {
+      const t = e.touches[0];
+      if (t) moveEye(t.clientX, t.clientY);
+    }, { passive: true });
 
+    window.addEventListener("touchstart", e => {
+      const t = e.touches[0];
+      if (t) moveEye(t.clientX, t.clientY);
+    }, { passive: true });
   }
 
   updateEye();

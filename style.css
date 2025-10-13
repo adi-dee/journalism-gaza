@@ -812,6 +812,7 @@ body {
   }
 
   .sun-wrapper {
+    top: 10vh;
     left: 25%;
   }
 

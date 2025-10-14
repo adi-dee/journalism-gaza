@@ -513,6 +513,7 @@ body {
 .heli-front {
   z-index: 3;
   height: 100%;
+  width: 100%;
 }
 
 /* Back (smaller) helicopter */

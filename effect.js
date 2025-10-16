@@ -228,6 +228,31 @@ window.addEventListener("scroll", () => {
   });
 });
 
+// ceasfire break scene
+
+(() => {
+  const section = document.querySelector(".ceasefire-parallax");
+  const flares = section.querySelectorAll(".flare");
+
+  window.addEventListener("scroll", () => {
+    const rect = section.getBoundingClientRect();
+    const progress = Math.min(Math.max(-rect.top / rect.height, 0), 1);
+
+    // move flares downward (different speeds)
+    flares.forEach(flare => {
+      const speed = parseFloat(flare.dataset.speed) || 0.2;
+      const translateY = progress * 80 * (speed * 5); // more distance
+      flare.style.transform = `translateY(${translateY}vh)`;
+    });
+
+    // slight fade-in of the city as flares approach
+    city.style.transform = `translateY(${(1 - progress) * 20}px)`;
+    city.style.opacity = Math.min(progress * 1.5, 1);
+  });
+})();
+
+
+
 // eye on rafah scene
 (() => {
   const scene = document.querySelector(".eye-illustration");

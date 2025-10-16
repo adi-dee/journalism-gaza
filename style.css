@@ -544,6 +544,19 @@ background: linear-gradient(180deg,rgba(106, 2, 1, 0) 0%, rgba(106, 2, 1, 1) 28%
   overflow: hidden;
 }
 
+.ceasefire-parallax .testemonial {
+  position: relative;
+  z-index: 5;
+  padding: 2rem 1.5rem;
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: -250px;
+
+  color: #fef4ea;
+}
+
 
 .flair-layer {
   position: absolute;

@@ -259,7 +259,7 @@ window.addEventListener("scroll", () => {
     // move flares downward (different speeds)
     flares.forEach(flare => {
       const speed = parseFloat(flare.dataset.speed) || 0.2;
-      const translateY = progress * 80 * (speed * 5); // more distance
+      const translateY = progress * 80 * (speed * 3); // more distance
       flare.style.transform = `translateY(${translateY}vh)`;
     });
  // === City rises (background) ===

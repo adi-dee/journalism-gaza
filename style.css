@@ -8,8 +8,8 @@ body {
   overflow-x: hidden;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
                'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  /* background: linear-gradient(to bottom, #ffffff 0%,  #faf3e8 20%, #faf3e8 93%,  #0E2229 98%, #0E2229 100%); */
-  background:linear-gradient(to bottom, #ffffff 0%, #faf3e8 56%, #6A0201 59%, #0E2229 66%, #faf3e8 69%, #faf3e8 90%, #0E2229 96%, #0E2229 100%);
+  background: linear-gradient(to bottom, #ffffff 0%,  #faf3e8 20%, #faf3e8 93%,  #0E2229 98%, #0E2229 100%);
+  /* background:linear-gradient(to bottom, #ffffff 0%, #faf3e8 56%, #6A0201 59%, #0E2229 66%, #faf3e8 69%, #faf3e8 90%, #0E2229 96%, #0E2229 100%); */
   color: #333;
 }
 
@@ -540,8 +540,8 @@ body {
 
 .ceasefire-parallax {
   position: relative;
-  height: 200vh;             /* tall scrollable section  */
-/* background: linear-gradient(180deg,rgba(106, 2, 1, 0) 0%, rgba(106, 2, 1, 1) 28%, rgba(14, 34, 41, 1) 90%, rgba(6, 5, 49, 0) 100%); */
+  height: 150vh;             /* tall scrollable section  */
+background: linear-gradient(180deg,rgba(106, 2, 1, 0) 0%, rgba(106, 2, 1, 1) 28%, rgba(14, 34, 41, 1) 90%, rgba(6, 5, 49, 0) 100%);
   overflow: hidden;
 }
 
@@ -836,8 +836,8 @@ position: relative;}
 /* === Desktop Enhancements === */
 @media (min-width: 1024px) {
 body {
-    /* background: linear-gradient(to bottom, #ffffff 0%,  #faf3e8 5%, #faf3e8 90%,  #0E2229 96%, #0E2229 100%); */
-      background:linear-gradient(to bottom, #ffffff 0%,  #faf3e8 5%, #faf3e8 52%, #6A0201 55%,   #0E2229 62%,  #faf3e8 65%, #faf3e8 90%, #0E2229 96%, #0E2229 100%);
+    background: linear-gradient(to bottom, #ffffff 0%,  #faf3e8 5%, #faf3e8 90%,  #0E2229 96%, #0E2229 100%);
+      /* background:linear-gradient(to bottom, #ffffff 0%,  #faf3e8 5%, #faf3e8 52%, #6A0201 55%,   #0E2229 62%,  #faf3e8 65%, #faf3e8 90%, #0E2229 96%, #0E2229 100%); */
 
  }
 
@@ -975,6 +975,10 @@ body {
   }
 
   /* ceasfire section desktop */
+
+  .ceasefire-parallax {
+  height: 200vh;             /* tall scrollable section  */
+  }
 
 .layer-far { 
   z-index: 1;

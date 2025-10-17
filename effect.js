@@ -43,15 +43,28 @@ document.addEventListener("scroll", () => {
   document.querySelector(".layer-tents").style.transform = `translateY(${progress * -8}px)`;
   // document.querySelector(".layer-press").style.transform = `translateX(${progress * -10}px)`; // moves opposite for depth
 });
+
+
  
 // opening swap
 
 (() => {
   const mobileQuery = window.matchMedia("(max-width: 768px)");
   const layers = document.querySelectorAll(".intro-section .layer");
+  const layers2 = document.querySelectorAll(".ceasefire-parallax .change-mobile");
+
 
   const swapImages = (isMobile) => {
     layers.forEach(img => {
+      const src = img.getAttribute("src");
+      const base = src.replace(/-m(\.[a-z]+)$/i, "$1"); // remove -m if exists
+      const ext = base.split(".").pop();
+      const baseName = base.substring(0, base.lastIndexOf("."));
+      const newSrc = isMobile ? `${baseName}-m.${ext}` : `${baseName}.${ext}`;
+      if (src !== newSrc) img.setAttribute("src", newSrc);
+    });
+
+    layers2.forEach(img => {
       const src = img.getAttribute("src");
       const base = src.replace(/-m(\.[a-z]+)$/i, "$1"); // remove -m if exists
       const ext = base.split(".").pop();

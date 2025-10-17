@@ -837,7 +837,7 @@ position: relative;}
 @media (min-width: 1024px) {
 body {
     /* background: linear-gradient(to bottom, #ffffff 0%,  #faf3e8 5%, #faf3e8 90%,  #0E2229 96%, #0E2229 100%); */
-      background:linear-gradient(to bottom, #ffffff 0%,  #faf3e8 56%,  #6A0201 60%,  #0E2229 64%,  #0E2229 66%,  #faf3e8 70%, #faf3e8 90%, #0E2229 96%, #0E2229 100%);
+      background:linear-gradient(to bottom, #ffffff 0%,  #faf3e8 5%, #faf3e8 52%, #6A0201 55%,   #0E2229 62%,  #faf3e8 65%, #faf3e8 90%, #0E2229 96%, #0E2229 100%);
 
  }
 

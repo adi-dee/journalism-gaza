@@ -263,7 +263,7 @@ window.addEventListener("scroll", () => {
  // === City rises (background) ===
     const cityLift = -progress * 20; // moves upward as you scroll
     city.style.transform = `translateY(${cityLift}px)`;
-    city.style.opacity = Math.min(progress * 1.4, 1);
+    // city.style.opacity = Math.min(progress * 1.4, 1);
 
     // === People + rock descend (foreground) ===
     const foregroundMove = progress * 40; // move downward

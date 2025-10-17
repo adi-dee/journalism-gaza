@@ -8,7 +8,8 @@ body {
   overflow-x: hidden;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
                'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  background: linear-gradient(to bottom, #ffffff 0%,  #faf3e8 20%, #faf3e8 93%,  #0E2229 98%, #0E2229 100%);
+  /* background: linear-gradient(to bottom, #ffffff 0%,  #faf3e8 20%, #faf3e8 93%,  #0E2229 98%, #0E2229 100%); */
+  background:linear-gradient(to bottom, #ffffff 0%, #faf3e8 56%, #6A0201 59%, #0E2229 66%, #faf3e8 69%, #faf3e8 90%, #0E2229 96%, #0E2229 100%);
   color: #333;
 }
 
@@ -540,7 +541,7 @@ body {
 .ceasefire-parallax {
   position: relative;
   height: 200vh;             /* tall scrollable section  */
-background: linear-gradient(180deg,rgba(106, 2, 1, 0) 0%, rgba(106, 2, 1, 1) 28%, rgba(14, 34, 41, 1) 90%, rgba(6, 5, 49, 0) 100%);
+/* background: linear-gradient(180deg,rgba(106, 2, 1, 0) 0%, rgba(106, 2, 1, 1) 28%, rgba(14, 34, 41, 1) 90%, rgba(6, 5, 49, 0) 100%); */
   overflow: hidden;
 }
 
@@ -614,7 +615,7 @@ background: linear-gradient(180deg,rgba(106, 2, 1, 0) 0%, rgba(106, 2, 1, 1) 28%
 }
 
 .sky  { z-index: 3; bottom: 8%; }
-.city { z-index: 1; bottom: 10%; }
+.dark-city { z-index: 1; bottom: 80px; }
 .people { z-index: 4; bottom: 13%; width: 80%; right: 20px; }
 .rock { z-index: 5; bottom: 10%; }
 
@@ -827,7 +828,9 @@ position: relative;}
 /* === Desktop Enhancements === */
 @media (min-width: 1024px) {
 body {
-    background: linear-gradient(to bottom, #ffffff 0%,  #faf3e8 5%, #faf3e8 90%,  #0E2229 96%, #0E2229 100%);
+    /* background: linear-gradient(to bottom, #ffffff 0%,  #faf3e8 5%, #faf3e8 90%,  #0E2229 96%, #0E2229 100%); */
+      background: linear-gradient(to bottom, #ffffff 0%,  #faf3e8 56%,  #6A0201 60%,  #0E2229 65%, #faf3e8 70%, #faf3e8 90%, #0E2229 96%, #0E2229 100%);
+
  }
 
  .layer {
@@ -979,11 +982,20 @@ body {
     z-index: 1;
 }
 
+.black-smoke {
+  position: absolute;
+  bottom: -100px;
+  width: 100%;
+  height: 40vh;
+  background: linear-gradient(to bottom, rgba(14,34,41,1) 0%, rgba(14,34,41,0) 95%,  #faf3e8 100%);
+  z-index: 2;
+}
+
 .sky  {
   bottom: -50px;
 }
 
-.city {
+.dark-city {
   bottom: 0;
 }
 
@@ -1108,6 +1120,13 @@ body {
 }
 
 .timeline-block:last-of-type .timeline-header {
+  position: relative !important;
+  top: auto !important;
+  background: none;
+  z-index: 1;
+}
+
+.non-sticky {
   position: relative !important;
   top: auto !important;
   background: none;

@@ -246,9 +246,11 @@ window.addEventListener("scroll", () => {
 (() => {
   const section = document.querySelector(".ceasefire-parallax");
   const flares = section.querySelectorAll(".flare");
-  const city = section.querySelector(".city");
+  const city = section.querySelector(".dark-city");
   const people = section.querySelector(".people");
   const rock = section.querySelector(".rock");
+  const smoke = section.querySelector(".smoke-bottom");
+
 
   window.addEventListener("scroll", () => {
     const rect = section.getBoundingClientRect();
@@ -261,9 +263,14 @@ window.addEventListener("scroll", () => {
       flare.style.transform = `translateY(${translateY}vh)`;
     });
  // === City rises (background) ===
-    const cityLift = -progress * 20; // moves upward as you scroll
+    const cityLift = -progress * 80; // moves upward as you scroll
     city.style.transform = `translateY(${cityLift}px)`;
     // city.style.opacity = Math.min(progress * 1.4, 1);
+
+    const smokeLift = -progress * 120; // moves upward as you scroll
+    smoke.style.transform = `translateY(${cityLift}px)`;
+    // city.style.opacity = Math.min(progress * 1.4, 1);
+
 
     // === People + rock descend (foreground) ===
     const foregroundMove = progress * 40; // move downward

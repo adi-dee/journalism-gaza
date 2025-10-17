@@ -824,12 +824,20 @@ position: relative;}
   z-index: 5;
 }
 
+.no-margin {
+  margin: 0;
+}
+
+.white-type {
+  color: #fdf6ef !important;
+}
+
 
 /* === Desktop Enhancements === */
 @media (min-width: 1024px) {
 body {
     /* background: linear-gradient(to bottom, #ffffff 0%,  #faf3e8 5%, #faf3e8 90%,  #0E2229 96%, #0E2229 100%); */
-      background: linear-gradient(to bottom, #ffffff 0%,  #faf3e8 56%,  #6A0201 60%,  #0E2229 65%, #faf3e8 70%, #faf3e8 90%, #0E2229 96%, #0E2229 100%);
+      background:linear-gradient(to bottom, #ffffff 0%,  #faf3e8 56%,  #6A0201 60%,  #0E2229 64%,  #0E2229 66%,  #faf3e8 70%, #faf3e8 90%, #0E2229 96%, #0E2229 100%);
 
  }
 
@@ -976,7 +984,7 @@ body {
 
   .smoke-bottom {
     position: absolute;
-    bottom: 60px;
+    bottom: 20px;
     width: 100%;
     opacity: 0.7;
     z-index: 1;

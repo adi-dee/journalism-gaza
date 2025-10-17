@@ -267,7 +267,7 @@ window.addEventListener("scroll", () => {
     city.style.transform = `translateY(${cityLift}px)`;
     // city.style.opacity = Math.min(progress * 1.4, 1);
 
-    const smokeLift = -progress * 120; // moves upward as you scroll
+    const smokeLift = progress * 20; // moves upward as you scroll
     smoke.style.transform = `translateY(${cityLift}px)`;
     // city.style.opacity = Math.min(progress * 1.4, 1);
 

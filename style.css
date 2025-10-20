@@ -792,8 +792,8 @@ position: relative;}
 
 .layer-woman { 
   z-index: 3; 
-  width: 100%; 
-  bottom: 0; 
+    width: 120%;
+    left: -15%;
 }
 
 /* Base placement (mobile-optimized) */
@@ -1057,6 +1057,7 @@ body {
 /* ending scene */
  .layer-woman { 
     width: 100%; 
+    left: 0;
   }
 
   .layer-left-back { 

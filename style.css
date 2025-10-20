@@ -869,7 +869,7 @@ position: relative;}
 /* === Desktop Enhancements === */
 @media (min-width: 1024px) {
 body {
-    background: linear-gradient(to bottom, #ffffff 0%,  #faf3e8 5%, #faf3e8 90%,  #0E2229 96%, #0E2229 100%);
+    background: linear-gradient(to bottom, #ffffff 0%,  #faf3e8 5%, #faf3e8 90%,  #0E2229 94%, #0E2229 100%);
       /* background:linear-gradient(to bottom, #ffffff 0%,  #faf3e8 5%, #faf3e8 52%, #6A0201 55%,   #0E2229 62%,  #faf3e8 65%, #faf3e8 90%, #0E2229 96%, #0E2229 100%); */
 
  }
@@ -992,7 +992,7 @@ body {
   }
 
   .closing-scene{
-    max-width: 730px;
+    max-width: 1200px;
     margin: 0 auto;
     margin-bottom: 150px;
   }

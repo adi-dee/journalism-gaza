@@ -156,7 +156,8 @@ body {
 }
 
 .scroll-paragraph:first-of-type {
-  margin-top: -20vh; /* appears earlier */
+  /* margin-top: -20vh;  */
+      margin-top: -150%;
 }
 
 /* === Next Section (Static Text) === */
@@ -792,8 +793,8 @@ position: relative;}
 
 .layer-woman { 
   z-index: 3; 
-    width: 120%;
-    left: -15%;
+    width: 150%;
+    left: -25%;
 }
 
 /* Base placement (mobile-optimized) */
@@ -932,7 +933,8 @@ body {
   }
 
   .scroll-paragraph:first-of-type {
-    margin-top: -10vh; /* show earlier */
+    /* margin-top: -10vh;*/
+        margin-top: -150%;
   }
 
   .sun {

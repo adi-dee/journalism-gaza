@@ -83,6 +83,7 @@ document.addEventListener("scroll", () => {
 
 
 // map change effect
+// map change effect — fixed for iPhone + Firefox
 document.addEventListener("DOMContentLoaded", () => {
   const REGION_TO_STRIP = {
     "rafah": "strip-1",
@@ -100,34 +101,43 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const blocks = [...document.querySelectorAll(".timeline-block")];
 
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          const content = entry.target.querySelector(".timeline-content");
-          if (!content) return;
+      // 🧠 Smooth observer, works on small viewports
+      let rafId;
+      const io = new IntersectionObserver(
+        entries => {
+          cancelAnimationFrame(rafId);
+          rafId = requestAnimationFrame(() => {
+            entries.forEach(entry => {
+              const content = entry.target.querySelector(".timeline-content");
+              const svg = entry.target.querySelector("svg");
+              if (!content || !svg) return;
 
-          const regionList = (content.dataset.region || "")
-            .split(/[,\s]+/) // split by commas or spaces
-            .map(r => r.trim().toLowerCase())
-            .filter(Boolean);
+              const regionList = (content.dataset.region || "")
+                .split(/[,\s]+/)
+                .map(r => r.trim().toLowerCase())
+                .filter(Boolean);
 
-          const svg = entry.target.querySelector("svg");
-          if (!svg) return;
+              // when leaving view
+              if (!entry.isIntersecting) {
+                svg.querySelectorAll(".active").forEach(s => s.classList.remove("active"));
+                return;
+              }
 
-          // Remove previous actives when out of view
-          if (!entry.isIntersecting) {
-            svg.querySelectorAll(".active").forEach(s => s.classList.remove("active"));
-            return;
-          }
-
-          // When visible — activate all matching strips
-          regionList.forEach(region => {
-            const stripId = REGION_TO_STRIP[region];
-            if (!stripId) return;
-            const strip = svg.querySelector(`#${stripId}`);
-            if (strip) strip.classList.add("active");
+              // when entering view
+              regionList.forEach(region => {
+                const stripId = REGION_TO_STRIP[region];
+                if (!stripId) return;
+                const strip = svg.querySelector(`#${stripId}`);
+                if (strip) strip.classList.add("active");
+              });
+            });
           });
-        });
-      }, { threshold: 0.5 });
+        },
+        {
+          threshold: 0.25,              // ✅ lower for short screens
+          rootMargin: "0px 0px -25% 0px" // ✅ trigger a bit earlier
+        }
+      );
 
       blocks.forEach(b => io.observe(b));
     });

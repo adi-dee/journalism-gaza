@@ -373,61 +373,37 @@ window.addEventListener("scroll", () => {
   const section = document.querySelector(".closing-scene");
   if (!section) return;
 
-  const layers = {
-    leftBack: section.querySelector(".layer-left-back"),
-    rightBack: section.querySelector(".layer-right-back"),
-    leftFront: section.querySelector(".layer-left-front"),
-    rightFront: section.querySelector(".layer-right-front"),
-    woman: section.querySelector(".layer-woman"),
-  };
+  const leftBack = section.querySelector(".layer-left-back");
+  const rightBack = section.querySelector(".layer-right-back");
+  const leftFront = section.querySelector(".layer-left-front");
+  const rightFront = section.querySelector(".layer-right-front");
 
   const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
-  // Smooth easing function
-  const easeInOutCubic = t => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-
-  // Update on scroll
   window.addEventListener("scroll", () => {
     const rect = section.getBoundingClientRect();
-    let progress = Math.min(Math.max(-rect.top / rect.height, 0), 1);
-    const eased = easeInOutCubic(progress);
 
-    // X motion follows a sine curve (natural)
-    const wave = Math.sin(eased * Math.PI);
+    // start effect slightly before entering viewport
+    const scrollStart = window.innerHeight * 0.5;
+    const scrollEnd = rect.height + window.innerHeight * 0.5;
+    const rawProgress = (scrollStart - rect.top) / scrollEnd;
+    const progress = Math.min(Math.max(rawProgress, 0), 1);
 
-    // Depth multipliers (back moves less, front more)
+    // smaller ranges for mobile
     const depth = {
-      backY: isMobile ? 20 : 40,
-      frontY: isMobile ? 35 : 100,
-      backX: isMobile ? 10 : 20,
-      frontX: isMobile ? 15 : 90,
+      backY: isMobile ? -20 : -40,  // move up
+      backX: isMobile ? 10 : 25,    // move outward
+      frontY: isMobile ? 20 : 40,   // move down
+      frontX: isMobile ? 35 : 40,   // move outward
     };
 
-    // Background (moves up + subtle drift)
-    layers.leftBack.style.transform = `
-      translate(${wave * -depth.backX}px, ${-eased * depth.backY}px) 
-      scale(${1 + eased * 0.01})
-    `;
-    layers.rightBack.style.transform = `
-      translate(${wave * depth.backX}px, ${-eased * depth.backY}px)
-      scale(${1 + eased * 0.01})
-    `;
+    // background (up + out)
+    leftBack.style.transform = `translate(${-progress * depth.backX}px, ${progress * depth.backY}px)`;
+    rightBack.style.transform = `translate(${progress * depth.backX}px, ${progress * depth.backY}px)`;
 
-    // Foreground (moves down + more outward)
-    layers.leftFront.style.transform = `
-      translate(${wave * -depth.frontX}px, ${eased * depth.frontY}px)
-      scale(${1 + eased * 0.03})
-    `;
-    layers.rightFront.style.transform = `
-      translate(${wave * depth.frontX}px, ${eased * depth.frontY}px)
-      scale(${1 + eased * 0.03})
-    `;
-
-    // Woman (slight delay + zoom)
-    const womanEase = easeInOutCubic(Math.min(progress + 0.05, 1));
-    layers.woman.style.transform = `
-      translate(0, ${womanEase * depth.frontY * 0.8}px)
-      scale(${1 + womanEase * 0.04})
-    `;
+    // foreground (down + out)
+    leftFront.style.transform = `translate(${-progress * depth.frontX}px)`;
+    rightFront.style.transform = `translate(${progress * depth.frontX}px)`;
   });
 })();
+

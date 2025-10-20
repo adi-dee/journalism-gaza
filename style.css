@@ -216,24 +216,28 @@ body {
 .timeline-section::after {
   content: "";
   position: absolute;
-  top: 2.8rem;       /* start below the top */
-  left: 0;           /* align left */
-  bottom: 0;         /* full height */
-  width: 1px;        /* line thickness */
+  top: 2.8rem;
+  left: 0;
+  bottom: 0;
+  width: 1px;
 
-  /* Custom dashed line */
-  background-image: repeating-linear-gradient(
-    to bottom,
-    #6A0201 0,         /* color starts */
-    #6A0201 10px,       /* dash length */
-    transparent 10px,   /* gap starts */
-    transparent 20px   /* gap length */
-  );
+  background-image:
+    repeating-linear-gradient(
+      to bottom,
+      #6A0201 0,
+      #6A0201 10px,
+      transparent 10px,
+      transparent 20px
+    );
+
+  /* 🎨 fade out only at the end */
+  mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
 
   pointer-events: none;
-  margin-bottom: 3rem;
   z-index: 0;
 }
+
 
 /* keep your content above the line (optional) */
 .timeline-section > *{
@@ -979,7 +983,7 @@ body {
   }
 
   .closing-parallax {
-  height: 60vh;
+        height: 70vh;
 }
 
     .closing-text {

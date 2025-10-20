@@ -759,70 +759,80 @@ position: relative;}
   position: sticky;
   top: 0;
   width: 100%;
-  height: 40vh;
+  height: 100vh;
   overflow: hidden;
 }
+
+/* closing scene */
 
 .closing-layer {
   position: absolute;
   bottom: 0;
-  left: 0;
   width: 100%;
   max-width: none;
-  transition: transform 0.1s linear;
   pointer-events: none;
+  transition: transform 0.15s ease-out;
+  will-change: transform;
 }
 
 /* Depth order */
-.layer-far { 
-  z-index: 1;
+.layer-left-back,
+.layer-right-back { 
+  z-index: 1; 
   opacity: 0.9; 
 }
 
-.layer-boat { z-index: 2; }
-.layer-people { z-index: 3; }
-.layer-cliff { z-index: 4; }
+.layer-left-front,
+.layer-right-front { 
+  z-index: 2; 
+  opacity: 1; 
+}
 
-/* Boats offset (starting points) */
-.boat1 {
-   left: 10%;
-   width: 30%;
- }
+.layer-woman { 
+  z-index: 3; 
+  width: 100%; 
+  bottom: 0; 
+}
 
-.boat2 {
-  left: 40%;
-  width: 20%;
- }
+/* Base placement (mobile-optimized) */
+.layer-left-back { 
+  width: 100%; 
+}
 
-.boat3 {
-  left: 45%;
-  width: 15%;
- }
+.layer-right-back { 
+  width: 100%; 
+}
 
-/* Text overlay */
+.layer-left-front { 
+  width: 100%; 
+}
+
+.layer-right-front { 
+  width: 80%; 
+}
+
+/* Text elements */
 .closing-text {
   position: relative;
   z-index: 5;
-  padding: 4rem 1.5rem;
+  padding: 3rem 1rem;
   color: #fdf6ef;
   font-family: "B612 Mono", monospace;
-  font-size: 1rem;
+  font-size: 0.95rem;
   line-height: 1.7;
-  text-align: left;
 }
 
 .credits {
   color: #fdf6ef;
   font-family: "B612 Mono", monospace;
-  margin-top: 3rem;
-  font-weight: 400;
-  opacity: 0.8;
   text-align: right;
-  position: absolute;
-  bottom: 0;
-  right: 0;
+  opacity: 0.8;
+  bottom: 0rem;
+  right: 1rem;
   z-index: 5;
+  font-size: 0.9rem;
 }
+
 
 .no-margin {
   margin: 0;
@@ -1042,32 +1052,36 @@ body {
   
 
 /* ending scene */
+ .layer-woman { 
+    width: 100%; 
+  }
 
-.boat1 {
-   left: 10%;
-   width: 30%;
- }
+  .layer-left-back { 
+    width: 100%; 
+  }
 
-.boat2 {
-  left: 40%;
-  width: 20%;
-    top: 20%;
- }
+  .layer-right-back { 
+    width: 100%; 
+  }
 
-.boat3 {
-  left: 45%;
-  width: 15%;
-    top: 20%;
- }
+  .layer-left-front { 
+    width: 100%; 
+  }
 
- .dummy-header {
-  position: relative;
-  height: 0.5rem;
-}
+  .layer-right-front { 
+    width: 100%; 
+  }
 
-.credits {
-      padding-right: 20px;
-}
+  .closing-text {
+    padding: 5rem 2rem;
+    font-size: 1rem;
+  }
+
+  .credits {
+    bottom: 3rem;
+    right: 2rem;
+    font-size: 1rem;
+  }
 
 
 }

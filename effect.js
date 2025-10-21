@@ -251,6 +251,25 @@ window.addEventListener("scroll", () => {
   });
 });
 
+
+// image effects
+window.addEventListener('scroll', () => {
+  const wrapper = document.querySelector('.image-wrapper');
+  if (!wrapper) return;
+
+  const shadow = wrapper.querySelector('.bg-shadow');
+  const image = wrapper.querySelector('.main-image');
+
+  const rect = wrapper.getBoundingClientRect();
+  const scrollFactor = rect.top * 0.05; // depth strength
+
+  // Now invert direction: use negative values
+  image.style.transform = `translateY(${-scrollFactor}px)`;
+  shadow.style.transform = `translateY(${-scrollFactor * 0.7}px)`;
+});
+
+
+
 // ceasfire break scene
 
 (() => {

@@ -866,10 +866,43 @@ position: relative;}
 }
 
 
+.image-wrapper {
+  position: relative;
+  max-width: 280px;
+  margin: 100px auto;
+  overflow: visible;
+}
+
+/* gray background “shadow” square */
+.bg-shadow {
+  position: absolute;
+  top: -30px;     /* 20px ABOVE the image */
+  left: 20px;     /* 20px to the RIGHT */
+  width: 100%;
+  height: 100%;
+  background: #d3d3d3;
+  z-index: 1;
+  transform: translateY(0);
+  transition: transform 0.1s linear;
+}
+
+/* main image above */
+.main-image {
+  position: relative;
+  width: 100%;
+  height: auto;
+  z-index: 2;
+  display: block;
+  transform: translateY(0);
+  transition: transform 0.1s linear;
+}
+
+
+
 /* === Desktop Enhancements === */
 @media (min-width: 1024px) {
 body {
-    background: linear-gradient(to bottom, #ffffff 0%,  #faf3e8 5%, #faf3e8 90%,  #0E2229 94%, #0E2229 100%);
+    background: linear-gradient(to bottom, #ffffff 0%,  #faf3e8 5%, #faf3e8 92%,  #0E2229 94%, #0E2229 100%);
       /* background:linear-gradient(to bottom, #ffffff 0%,  #faf3e8 5%, #faf3e8 52%, #6A0201 55%,   #0E2229 62%,  #faf3e8 65%, #faf3e8 90%, #0E2229 96%, #0E2229 100%); */
 
  }
@@ -896,6 +929,10 @@ body {
 
   .intro-section {
   height: 270vh; /* taller parent */
+}
+
+.image-wrapper {
+  max-width: 480px;
 }
 
 /* this wrapper keeps margins consistent on desktop */

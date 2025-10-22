@@ -242,7 +242,7 @@ body {
 .timeline-section::after {
   content: "";
   position: absolute;
-  top: 0;
+  top: 5px;
   left: 0;
   bottom: 0;
   width: 1px;
@@ -275,7 +275,7 @@ body {
 .timeline-header::before {
   content: "";
   position: absolute;
-  top: 0;
+  top: 5px;
   left: 0;
   width: 100%;
   height: 1px;
@@ -342,7 +342,7 @@ body {
 
 /* Content under sticky header */
 .timeline-content {
-  padding: 20px 20px 0 40px;
+  padding: 20px 30px 0 40px;
   line-height: 1.6;
   font-size: 1rem;
 }
@@ -758,7 +758,7 @@ position: relative;}
   /* background: linear-gradient(to bottom, #fdf6ef 0%, #06082d 20%); */
   overflow: hidden;
   margin-bottom: 150px;
-  margin-top: 200px;
+  margin-top: 40px;
   
 }
 
@@ -824,10 +824,10 @@ position: relative;}
   position: relative;
   z-index: 5;
   padding: 0 3rem 2rem;
+  line-height: 143%;
+  font-family: 'Newsreader';
   color: #fdf6ef;
-  font-family: "B612 Mono", monospace;
-  font-size: 0.95rem;
-  line-height: 1.7;
+  font-size: 1.2rem;
 }
 
 .credits {
@@ -1056,10 +1056,10 @@ body {
 }
 
     .closing-text {
-    font-size: 1.2rem;
-    max-width: 700px;
+    max-width: 600px;
     margin: 0 auto;
     text-align: left;
+    padding: 5rem 2rem;
   }
 
   /* ceasfire section desktop */
@@ -1151,10 +1151,6 @@ body {
     width: 100%; 
   }
 
-  .closing-text {
-    padding: 5rem 2rem;
-    font-size: 1rem;
-  }
 
   .credits {
     bottom: 3rem;

@@ -254,19 +254,26 @@ window.addEventListener("scroll", () => {
 
 // image effects
 window.addEventListener('scroll', () => {
-  const wrapper = document.querySelector('.image-wrapper');
-  if (!wrapper) return;
+  const wrappers = document.querySelectorAll('.image-wrapper');
+  if (!wrappers.length) return;
 
-  const shadow = wrapper.querySelector('.bg-shadow');
-  const image = wrapper.querySelector('.main-image');
+  wrappers.forEach(wrapper => {
+    const shadow = wrapper.querySelector('.bg-shadow');
+    const image = wrapper.querySelector('.main-image');
+    const credit = wrapper.querySelector('.image-credit');
 
-  const rect = wrapper.getBoundingClientRect();
-  const scrollFactor = rect.top * 0.05; // depth strength
+    if (!image || !shadow || !credit) return;
 
-  // Now invert direction: use negative values
-  image.style.transform = `translateY(${-scrollFactor}px)`;
-  shadow.style.transform = `translateY(${-scrollFactor * 0.7}px)`;
+    const rect = wrapper.getBoundingClientRect();
+    const scrollFactor = rect.top * 0.05; // depth strength
+
+    // move all elements together
+    image.style.transform = `translateY(${-scrollFactor}px)`;
+    credit.style.transform = `translateY(${-scrollFactor}px)`;
+    shadow.style.transform = `translateY(${-scrollFactor * 0.7}px)`;
+  });
 });
+
 
 
 

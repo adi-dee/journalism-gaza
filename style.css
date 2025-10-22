@@ -167,7 +167,7 @@ body {
     position: relative;
     z-index: 1;
     padding: 2rem 1.5rem;
-    font-size: 1.5rem;
+    font-size: 1rem;
     line-height: 1.7;
     max-width: 600px;
     margin: 0 auto;
@@ -230,9 +230,9 @@ body {
   position: sticky;
     background: #fef4ea;
     margin-left: 3px;
-    margin-right: 15px;
+    margin-right: 5px;
     top: 0;
-    padding: 20px 5px 20px 20px;
+    padding: 20px 0px 40px 10px;
     z-index: 5;
      font-family: "B612 Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
 
@@ -306,11 +306,11 @@ body {
   font-family: "Source Serif 4", serif;
   font-size: 18px;
   font-weight: 400;
-  width: 70%;
-  float: right;
-  text-align: right;
+  width: 67%;
+  float: left;
+  text-align: left;
   margin: 0;
-  margin-top: -5px;
+  margin-top: -4px;
 }
 
 .headline a {
@@ -856,7 +856,20 @@ position: relative;}
   position: relative;
   max-width: 280px;
   margin: 100px auto;
+  margin-left: 0;
   overflow: visible;
+}
+
+.image-credit {
+    z-index: 2;
+    position: absolute;
+    font-size: 0.6rem;
+    padding-top: 5px;
+}
+
+.image-credit a {
+  color: inherit;
+  /* text-decoration: none; */
 }
 
 /* gray background “shadow” square */
@@ -920,6 +933,7 @@ body {
 
 .image-wrapper {
   max-width: 480px;
+  margin-left: auto;
 }
 
 /* this wrapper keeps margins consistent on desktop */
@@ -944,14 +958,18 @@ body {
   }
 
   .timeline-header {
-      padding: 20px 10px 20px 30px;
+      padding: 20px 20px 10px;
   }
 
   .timeline-header .headline {
- 
-  width:fit-content;
- 
+    width:fit-content;
+    float: none;
   }
+
+  .timeline-header .date {
+    float: right;
+    text-align: right;
+  } 
 
   
   .title-wrapper h1 {

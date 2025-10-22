@@ -270,7 +270,7 @@ window.addEventListener('scroll', () => {
     // move all elements together
     image.style.transform = `translateY(${-scrollFactor}px)`;
     credit.style.transform = `translateY(${-scrollFactor}px)`;
-    shadow.style.transform = `translateY(${-scrollFactor * 0.9}px)`;
+    shadow.style.transform = `translateY(${scrollFactor * 0.9}px)`;
   });
 });
 

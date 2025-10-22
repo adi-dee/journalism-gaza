@@ -246,7 +246,7 @@ window.addEventListener("scroll", () => {
     }
 
      if (background2) {
-      background2.style.top = `${progress * moveY / 6 }px`;
+      background2.style.top = `${progress * moveY / 3 }px`;
     }
   });
 });

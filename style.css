@@ -218,11 +218,9 @@ body {
     background: #fef4ea;
     margin-left: 3px;
     margin-right: 15px;
-  top: 0;
-  padding: 1rem;
-  padding-left: 0;
-  padding-right: 0;
-  z-index: 5;
+    top: 0;
+    padding: 20px 5px 20px 30px;
+    z-index: 5;
      font-family: "B612 Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
 
 }
@@ -231,7 +229,7 @@ body {
 .timeline-section::after {
   content: "";
   position: absolute;
-  top: 2.8rem;
+  top: 0;
   left: 0;
   bottom: 0;
   width: 1px;
@@ -260,50 +258,20 @@ body {
   z-index: 1;
 }
 
-.timeline-header .date {
-  padding-left: 1rem;
-  font-size: 1rem;
-  display: block;
-  color: #444;
+.timeline-header {
+  position: relative;
+  padding-top: 1.2rem; /* space for dashed line */
+  font-family: "B612 Mono", monospace;
 }
 
-.timeline-header .headline  {
-  font-size: 1rem;
-  text-decoration: underline;
-  margin: 0.5rem 0 0;
-  padding-top: 10px;
-  font-weight: 400;
-  color: #333;
-  text-align: right;
-  position: relative; /* needed for the pseudo-element */
-}
-
-
-/* Add link styling inside headline */
-.timeline-header .headline a {
-  color: inherit;                 /* inherit #333 */
-  text-decoration: underline;     /* keep underline */
-  text-decoration-thickness: 1px; /* makes it clean */
-  text-underline-offset: 2px;     /* adds spacing */
-  transition: color 0.2s ease;
-}
-
-/* Hover/focus state for clarity */
-.timeline-header .headline a:hover,
-.timeline-header .headline a:focus {
-  color: #6A0201;
-  text-decoration-color: #6A0201;
-}
-
-/* Keep your top dashed line */
-.timeline-header .headline::before {
+/* dashed line on top */
+.timeline-header::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 1px;
-
   background-image: repeating-linear-gradient(
     to right,
     #6A0201 0,
@@ -313,26 +281,38 @@ body {
   );
 }
 
-.timeline-header .headline::before {
-  content: "";
-  position: absolute;
-  top: 0;            /* place at the top of the element */
-  left: 0;
-  width: 100%;
-  height: 1px;       /* thickness of the line */
-
-  background-image: repeating-linear-gradient(
-    to right,        /* go left to right */
-    #6A0201 0,       /* color start */
-    #6A0201 10px,     /* dash length */
-    transparent 10px, /* gap start */
-    transparent 20px /* gap length */
-  );
+/* layout for date + headline */
+.timeline-header .date,
+.timeline-header .headline {
+  display: inline-block;
+  vertical-align: baseline;
 }
 
-.dummy-header {
-  position: relative;
+/* date on left */
+.timeline-header .date {
+  font-size: 0.95rem;
+  color: #333;
+  width: 20%;
 }
+
+/* headline on right */
+.timeline-header .headline {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #333;
+  width: 60%;
+  float: right;
+  text-align: right;
+  margin: 0;
+}
+
+.headline a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+
 
 /* bottom dashed line — same style as top, but can move vertically */
 .dummy-header::before {
@@ -957,8 +937,15 @@ body {
   }
 
   .timeline-header {
-    padding: 1rem 0;
+      padding: 20px 10px 20px 30px;
   }
+
+  .timeline-header .headline {
+ 
+  width:fit-content;
+ 
+  }
+
   
   .title-wrapper h1 {
     font-size: 3rem;
@@ -1156,26 +1143,6 @@ body {
   color: #0E2229;
 }
 
-/* vertical dashed line on the left */
-.last-block::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0; /* full height */
-  width: 1px;
-
-  background-image: repeating-linear-gradient(
-    to bottom,
-    #6A0201 0,
-    #6A0201 10px,
-    transparent 10px,
-    transparent 20px
-  );
-
-  pointer-events: none;
-  z-index: 0;
-}
 
 /* bottom dashed line (matching the top line in timeline headers) */
 .last-block::after {

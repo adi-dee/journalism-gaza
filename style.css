@@ -8,7 +8,7 @@ body {
   overflow-x: hidden;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
                'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  background: linear-gradient(to bottom, #ffffff 0%,  #faf3e8 20%, #faf3e8 93%,  #0E2229 98%, #0E2229 100%);
+  background: linear-gradient(to bottom, #ffffff 0%, #faf3e8 8%, #faf3e8 20%, #faf3e8 93%,  #0E2229 98%, #0E2229 100%);
   /* background:linear-gradient(to bottom, #ffffff 0%, #faf3e8 56%, #6A0201 59%, #0E2229 66%, #faf3e8 69%, #faf3e8 90%, #0E2229 96%, #0E2229 100%); */
   color: #333;
 }
@@ -54,6 +54,7 @@ body {
 .intro-section {
   position: relative;
   height: 250vh; /* taller parent */
+  margin-bottom: 150px;
 }
 
 .sticky-graphic {
@@ -219,7 +220,7 @@ body {
     margin-left: 3px;
     margin-right: 15px;
     top: 0;
-    padding: 20px 5px 20px 30px;
+    padding: 20px 5px 20px 20px;
     z-index: 5;
      font-family: "B612 Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
 
@@ -258,12 +259,6 @@ body {
   z-index: 1;
 }
 
-.timeline-header {
-  position: relative;
-  padding-top: 1.2rem; /* space for dashed line */
-  font-family: "B612 Mono", monospace;
-}
-
 /* dashed line on top */
 .timeline-header::before {
   content: "";
@@ -291,7 +286,6 @@ body {
 /* date on left */
 .timeline-header .date {
   font-size: 0.95rem;
-  color: #333;
   width: 20%;
 }
 
@@ -299,8 +293,7 @@ body {
 .timeline-header .headline {
   font-size: 1rem;
   font-weight: 400;
-  color: #333;
-  width: 60%;
+  width: 70%;
   float: right;
   text-align: right;
   margin: 0;
@@ -308,8 +301,8 @@ body {
 
 .headline a {
   color: inherit;
-  text-decoration: none;
   font-weight: bold;
+  background-color: #faf3e8;
 }
 
 
@@ -432,15 +425,13 @@ body {
 }
 
 .testemonial {
-  /* font-style: italic; */
+  font-style: italic;
   font-size: 1.2rem;
   font-family: 'Newsreader', serif;
   font-family: 'Newsreader';
   font-style: normal;
   font-weight: 500;
   line-height: 143%;
-  /* or 143% */
-  /* letter-spacing: 0.2em; */
   color: #0E2229;
   }
 
@@ -882,7 +873,7 @@ position: relative;}
 /* === Desktop Enhancements === */
 @media (min-width: 1024px) {
 body {
-    background: linear-gradient(to bottom, #ffffff 0%,  #faf3e8 5%, #faf3e8 92%,  #0E2229 94%, #0E2229 100%);
+    background: linear-gradient(to bottom, #ffffff 0%,  #faf3e8 12%, #faf3e8 92%,  #0E2229 94%, #0E2229 100%);
       /* background:linear-gradient(to bottom, #ffffff 0%,  #faf3e8 5%, #faf3e8 52%, #6A0201 55%,   #0E2229 62%,  #faf3e8 65%, #faf3e8 90%, #0E2229 96%, #0E2229 100%); */
 
  }
@@ -963,6 +954,7 @@ body {
   left: 0;
   z-index: 2;
   padding-bottom: 80px;
+  
 }
 
 

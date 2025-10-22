@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=B612+Mono:wght@400;700&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Newsreader:wght@400;500;600;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
 
 
 body {
@@ -42,13 +42,21 @@ body {
 .title-wrapper h1 {
   margin: 0;
   font-size: 2rem;
+  font-family: "Source Serif 4", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
 }
 
 .title-wrapper h2 {
   margin: 0;
   font-size: 1.2rem;
   font-style: italic;
-  color: #444;
+  /* color: #444; */
+  font-family: "Source Serif 4", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
 }
 
 .intro-section {
@@ -291,12 +299,14 @@ body {
 
 /* headline on right */
 .timeline-header .headline {
-  font-size: 1rem;
+  font-family: "Source Serif 4", serif;
+  font-size: 18px;
   font-weight: 400;
   width: 70%;
   float: right;
   text-align: right;
   margin: 0;
+  margin-top: -5px;
 }
 
 .headline a {
@@ -873,7 +883,7 @@ position: relative;}
 /* === Desktop Enhancements === */
 @media (min-width: 1024px) {
 body {
-    background: linear-gradient(to bottom, #ffffff 0%,  #faf3e8 12%, #faf3e8 92%,  #0E2229 94%, #0E2229 100%);
+    background: linear-gradient(to bottom, #ffffff 0%,  #faf3e8 8%, #faf3e8 92%,  #0E2229 94%, #0E2229 100%);
       /* background:linear-gradient(to bottom, #ffffff 0%,  #faf3e8 5%, #faf3e8 52%, #6A0201 55%,   #0E2229 62%,  #faf3e8 65%, #faf3e8 90%, #0E2229 96%, #0E2229 100%); */
 
  }

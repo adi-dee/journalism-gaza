@@ -855,7 +855,7 @@ position: relative;}
 .image-wrapper {
   position: relative;
   max-width: 280px;
-  margin: 100px auto;
+  margin: 100px auto 70px;
   margin-left: 0;
   overflow: visible;
 }

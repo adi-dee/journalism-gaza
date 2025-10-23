@@ -408,14 +408,13 @@ body {
 }
 
 .map-name {
-  font-weight: bold;
+  font-weight: 600;
   margin: 0;
 }
 
 .map-name a {
   color: inherit;
   font-weight: inherit;
-  text-decoration: none;
 }
 
 .map-name a:hover {
@@ -983,7 +982,7 @@ body {
   }
 
   .timeline-header {
-      padding: 20px 20px 10px 60px;
+      padding: 20px 20px 10px 55px;
   }
 
   .timeline-header .headline {

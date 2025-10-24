@@ -62,7 +62,7 @@ body {
 .intro-section {
   position: relative;
   height: 240vh; /* taller parent */
-  margin-bottom: 120px;
+  margin-bottom: 80px;
 }
 
 .sticky-graphic {
@@ -82,7 +82,7 @@ body {
 .parallax-scene {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 110vh;
   overflow: hidden;
 }
 
@@ -240,7 +240,6 @@ body {
   position: sticky;
     background: #fef4ea;
     margin-left: 3px;
-    margin-right: 5px;
     top: 0;
     padding: 20px 0px 40px 10px;
     z-index: 5;
@@ -776,7 +775,7 @@ position: relative;}
   height: 100%;
   /* background: linear-gradient(to bottom, #fdf6ef 0%, #06082d 20%); */
   overflow: hidden;
-  margin-bottom: 150px;
+  margin-bottom: 120px;
   margin-top: 40px;
   
 }
@@ -934,6 +933,11 @@ body {
   margin-left: -80px;
 }
 
+
+.parallax-scene {
+  height: 130vh;
+}
+
   .testemonial.citation::before {
   top: 0;
   left: -25px;
@@ -948,7 +952,7 @@ body {
 
   .intro-section {
   height: 230vh; /* taller parent */
-  margin-bottom: 150px;
+  margin-bottom: 350px;
 }
 
 .image-wrapper {
@@ -983,6 +987,7 @@ body {
 
   .timeline-header {
       padding: 20px 20px 10px 55px;
+      margin-right: 5px;
   }
 
   .timeline-header .headline {
@@ -1072,14 +1077,14 @@ body {
   }
 
   .closing-parallax {
-        height: 70vh;
+        height: 80vh;
 }
 
     .closing-text {
     max-width: 600px;
     margin: 0 auto;
     text-align: left;
-    padding: 5rem 2rem;
+    padding: 5rem 2rem 0;
   }
 
   /* ceasfire section desktop */

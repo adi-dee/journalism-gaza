@@ -175,7 +175,7 @@ body {
 }
 
 .scroll-paragraph {
-  margin-bottom: 20vh;
+  margin-bottom: 15vh;
   font-family: 'Newsreader', serif;
 }
 
@@ -451,7 +451,6 @@ body {
   font-size: 1.2rem;
   font-family: 'Newsreader', serif;
   font-family: 'Newsreader';
-  font-style: normal;
   font-weight: 500;
   line-height: 143%;
   color: #0E2229;
@@ -1027,7 +1026,7 @@ body {
   }
 
   .scroll-paragraph {
-    margin: 30vh 0; /* less empty scroll on desktop */
+    margin: 10vh 0; /* less empty scroll on desktop */
   }
 
   .scroll-paragraph:first-of-type {

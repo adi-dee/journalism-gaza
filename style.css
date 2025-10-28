@@ -849,8 +849,11 @@ position: relative;}
 
 .closing-text a {
      color: #fdf6ef;
-    font-weight: 600;
+  
   }
+
+
+
 
   .closing-text a:hover {
     text-decoration: underline;
@@ -976,7 +979,7 @@ body {
   }
 
   .timeline-content {
-      padding: 20px 60px;
+      padding: 20px 60px 100px ;
   }
 
   .scroll-text {

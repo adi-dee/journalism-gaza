@@ -37,11 +37,11 @@ document.addEventListener("scroll", () => {
   const progress = Math.min(Math.max((scrollTop - sectionTop) / (sectionHeight - window.innerHeight), 0), 1);
 
   // each layer moves at a slightly different speed (up/down)
-  document.querySelector(".layer-dust").style.transform = `translateY(${progress * 40}px)`;
+  // document.querySelector(".layer-dust").style.transform = `translateY(${progress * 40}px)`;
   document.querySelector(".layer-buildings").style.transform = `translateY(${progress * -25}px)`;
   document.querySelector(".layer-mosque").style.transform = `translateY(${progress * -15}px)`;
   document.querySelector(".layer-tents").style.transform = `translateY(${progress * -8}px)`;
-  // document.querySelector(".layer-press").style.transform = `translateX(${progress * -10}px)`; // moves opposite for depth
+  document.querySelector(".layer-press").style.transform = `translateX(${progress * -10}px)`; // moves opposite for depth
 });
 
 

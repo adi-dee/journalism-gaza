@@ -297,6 +297,22 @@ body {
   );
 }
 
+.timeline-no-margin {
+  margin-top: -50px;
+}
+
+.no-line {
+  background: none;
+}
+
+.no-line::before {
+  display: none;
+}
+
+.timeline-no-margin .headline a {
+  background-color: transparent;
+}
+
 /* layout for date + headline */
 .timeline-header .date,
 .timeline-header .headline {

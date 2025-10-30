@@ -197,6 +197,8 @@ body {
 .scroll-paragraph {
   margin-bottom: 15vh;
   font-family: 'Newsreader', serif;
+  padding: 0.2rem;
+  background: linear-gradient(90deg, rgba(254, 252, 250, 0.3) 0%, /* start: same color, low opacity */ rgba(254, 252, 250, 1) 100% /* end: fully opaque */);
 }
 
  .scroll-paragraph a {
@@ -1107,6 +1109,8 @@ body {
 
   .scroll-paragraph {
     margin: 10vh 0; /* less empty scroll on desktop */
+    background: none;
+    padding: 0;
   }
 
   .scroll-paragraph:first-of-type {

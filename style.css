@@ -61,7 +61,9 @@ body {
 
 .intro-section {
   position: relative;
-     height: 300vh;
+   /* height: 300vh; */
+    height: 440vh;
+
 }
 
 .sticky-graphic {
@@ -1016,7 +1018,8 @@ body {
 }
 
 .intro-section {
-  height: 200vh; /* taller parent */
+  /* height: 200vh;  */
+  height: 280vh;
   margin-bottom: 230px;
 }
 

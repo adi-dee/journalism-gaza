@@ -599,7 +599,7 @@ body {
   height: 200vh;             /* tall scrollable section  */
   background: linear-gradient(180deg,rgba(106, 2, 1, 0) 0%, rgba(106, 2, 1, 1) 28%, rgba(14, 34, 41, 1) 90%, rgba(6, 5, 49, 0) 100%);
   overflow: hidden;
-  margin-top: -120px;
+  margin-top: -60px;
 }
 
 .ceasefire-parallax .testemonial {

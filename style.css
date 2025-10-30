@@ -384,9 +384,13 @@ body {
 
 /* Content under sticky header */
 .timeline-content {
-  padding: 20px 30px 0px 40px;
+  padding: 20px 30px 60px 40px;
   line-height: 1.6;
   font-size: 1rem;
+}
+
+.last-time {
+  padding-bottom: 0;
 }
 
 .timeline-content img,
@@ -880,6 +884,7 @@ position: relative;}
   color: #fdf6ef;
   font-size: 1.2rem;
   margin-bottom: 60px;
+  font-style: italic;
 }
 
 .closing-text a {
@@ -1035,8 +1040,13 @@ body {
   }
 
   .timeline-content {
-      padding: 20px 60px 0px ;
+      padding: 20px 60px 100px ;
   }
+
+
+.last-time {
+  padding-bottom: 0;
+}
 
   .scroll-text {
     max-width: 640px;
@@ -1154,6 +1164,7 @@ body {
     text-align: left;
     padding: 5rem 2rem 0;
     margin-bottom: 100px;
+    font-size: 1.4rem;
   }
 
   /* ceasfire section desktop */

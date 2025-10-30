@@ -384,7 +384,7 @@ body {
 
 /* Content under sticky header */
 .timeline-content {
-  padding: 20px 30px 60px 40px;
+  padding: 20px 30px 0px 40px;
   line-height: 1.6;
   font-size: 1rem;
 }
@@ -879,6 +879,7 @@ position: relative;}
   font-family: 'Newsreader';
   color: #fdf6ef;
   font-size: 1.2rem;
+  margin-bottom: 60px;
 }
 
 .closing-text a {
@@ -902,13 +903,15 @@ position: relative;}
   z-index: 5;
   font-size: 0.9rem;
   text-align: left;
-   margin-top: 50px;
+       margin-top: 110px;
+
 }
 
 .credits div {
   line-height: 2;
   margin: 0 auto;
   width: fit-content;
+  
 }
 
 .credits a {
@@ -973,7 +976,7 @@ position: relative;}
 /* === Desktop Enhancements === */
 @media (min-width: 1024px) {
 body {
-    background: linear-gradient(to bottom, #ffffff 0%,  #faf3e8 8%, #faf3e8 92%,  #0E2229 94%, #0E2229 100%);
+    background: linear-gradient(to bottom, #ffffff 0%,  #faf3e8 8%, #faf3e8 92%,  #0E2229 96%, #0E2229 100%);
       /* background:linear-gradient(to bottom, #ffffff 0%,  #faf3e8 5%, #faf3e8 52%, #6A0201 55%,   #0E2229 62%,  #faf3e8 65%, #faf3e8 90%, #0E2229 96%, #0E2229 100%); */
 
  }
@@ -1032,7 +1035,7 @@ body {
   }
 
   .timeline-content {
-      padding: 20px 60px 100px ;
+      padding: 20px 60px 0px ;
   }
 
   .scroll-text {
@@ -1101,6 +1104,7 @@ body {
   .sun {
     width: 150px;
     height: 150px;
+    pointer-events: none;
   }
 
   .sun-wrapper {
@@ -1149,6 +1153,7 @@ body {
     margin: 0 auto;
     text-align: left;
     padding: 5rem 2rem 0;
+    margin-bottom: 100px;
   }
 
   /* ceasfire section desktop */

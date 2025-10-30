@@ -1,11 +1,14 @@
-// Sun parallax: move DOWN slower but still cross the whole screen
+// Sun parallax: move DOWN slower but still cross the whole screen + faster color fade
 (() => {
   const section = document.querySelector('.intro-section');
   const sun = document.querySelector('.sun-wrapper');
-  const SPEED = 0.3; // <1 = slower than scroll, >1 = faster
+  const sunCircle = document.querySelector('.sun-circle');
+  const SPEED = 0.15; // smaller = slower movement
+  const COLOR_SPEED = 1.8; // larger = faster color shift
 
   function onScroll() {
     if (!section || !sun) return;
+
     const rect = section.getBoundingClientRect();
     const sectionHeight = rect.height;
     const viewportHeight = window.innerHeight;
@@ -13,11 +16,35 @@
     // how much of the section has been scrolled
     const scrolled = Math.max(0, -rect.top);
 
-    // move proportionally across the entire screen height
-    const progress = scrolled / (sectionHeight - viewportHeight);
-    const y = progress * viewportHeight; // full descent across screen
+    // full progress through the section (0 → 1)
+    const progress = Math.min(scrolled / (sectionHeight - viewportHeight), 1);
 
+    // === SUN POSITION ===
+    // Let it still travel the full viewport height, just slower visually
+    const y = progress * viewportHeight * SPEED; 
     sun.style.transform = `translate(-50%, ${y}px)`;
+
+    // === COLOR FADE ===
+    if (sunCircle) {
+      const end = { r: 255, g: 239, b: 213 }; // #FFEFD5
+      const start = { r: 106, g: 2, b: 1 };       // #6A0201
+
+      // accelerate color fade, but clamp to 1
+      const colorProgress = Math.min(progress * COLOR_SPEED, 1);
+
+      const r = Math.round(start.r + (end.r - start.r) * colorProgress);
+      const g = Math.round(start.g + (end.g - start.g) * colorProgress);
+      const b = Math.round(start.b + (end.b - start.b) * colorProgress);
+
+      sunCircle.style.fill = `rgb(${r}, ${g}, ${b})`;
+    }
+
+    // === DISAPPEAR AFTER SECTION ===
+    // Keep it visible through full section scroll, fade after it leaves viewport
+    const fadeStart = sectionHeight - viewportHeight;
+    const fadeEnd = sectionHeight; // start fading only after the section is nearly done
+    const fadeProgress = Math.min(Math.max((scrolled - fadeStart) / (fadeEnd - fadeStart), 0), 1);
+    sun.style.opacity = 1 - fadeProgress;
   }
 
   onScroll();

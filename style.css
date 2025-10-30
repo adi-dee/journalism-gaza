@@ -62,7 +62,6 @@ body {
 .intro-section {
   position: relative;
   height: 240vh; /* taller parent */
-  margin-bottom: 80px;
 }
 
 .sticky-graphic {
@@ -93,6 +92,19 @@ body {
   max-width: 1200px;
   pointer-events: none;
   transition: transform 0.1s linear;
+}
+
+.layer-buildings,
+.layer-mosque,
+.layer-tents,
+.layer-press {
+  pointer-events: none;
+}
+
+.sticky-graphic,
+.graphic,
+.layer {
+  pointer-events: none;
 }
 
 /* Slight z-index separation to preserve stacking order */
@@ -151,6 +163,12 @@ body {
   filter: blur(1px);
 }
 
+.sun-circle {
+  fill: #FFEFD5; /* starting color */
+  transition: fill 0.3s linear;
+}
+
+
 /* Gradient fade overlay */
 .fade-bottom {
   position: absolute;
@@ -166,8 +184,8 @@ body {
 .scroll-text {
     position: relative;
     z-index: 1;
-    padding: 2rem 1.5rem;
-    font-size: 1rem;
+    padding: 2rem 3rem;
+    font-size: 1.1rem;
     line-height: 1.7;
     max-width: 600px;
     margin: 0 auto;
@@ -181,8 +199,6 @@ body {
 
  .scroll-paragraph a {
     color: #4A0C0B;
-    text-decoration: none;
-
   }
 
   .scroll-paragraph a:hover {
@@ -191,7 +207,7 @@ body {
 
 .scroll-paragraph:first-of-type {
   /* margin-top: -20vh;  */
-      margin-top: -150%;
+  margin-top: -150%;
 }
 
 .scroll-paragraph:last-of-type {
@@ -203,19 +219,20 @@ body {
   padding: 4rem 1.5rem;
   line-height: 1.7;
   font-size: 1.05rem;
+  background-color: #faf3e8;
   color: #333;
-  margin-bottom: 100px;
-    background: #fef4ea;
+  position: relative;
+  z-index: 5;
 }
 
 .text-wrapper {
-  max-width: 700px;
+  max-width: 730px;
   margin: 0 auto;
 }
 
 .text-section p {
   margin-bottom: 2rem;
-  
+  font-family: 'Newsreader', serif;
 }
 
 /* === timeline section === */
@@ -417,7 +434,7 @@ body {
 
 .map-info {
   flex: 1;   /* take left space */
-  font-size: 1rem;
+  font-size: 0.9rem;
   line-height: 1.4;
   color: #333;
 }
@@ -464,13 +481,13 @@ body {
 
 .testemonial {
   font-style: italic;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-family: 'Newsreader', serif;
   font-family: 'Newsreader';
   font-weight: 500;
   line-height: 143%;
   color: #0E2229;
-  /* padding: 0 20px; */
+  margin-bottom: 50px;
   }
 
   .testemonial a {
@@ -580,20 +597,21 @@ body {
 .ceasefire-parallax {
   position: relative;
   height: 200vh;             /* tall scrollable section  */
-background: linear-gradient(180deg,rgba(106, 2, 1, 0) 0%, rgba(106, 2, 1, 1) 28%, rgba(14, 34, 41, 1) 90%, rgba(6, 5, 49, 0) 100%);
+  background: linear-gradient(180deg,rgba(106, 2, 1, 0) 0%, rgba(106, 2, 1, 1) 28%, rgba(14, 34, 41, 1) 90%, rgba(6, 5, 49, 0) 100%);
   overflow: hidden;
+  margin-top: -120px;
 }
 
 .ceasefire-parallax .testemonial {
   position: relative;
   z-index: 5;
-  padding: 30px 40px;
+  padding: 30px 30px 80px 30px;
   font-size: 1.2rem;
   max-width: 600px;
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 100px;
   margin-bottom: -250px;
-  color: #fef4ea;
+  color: white;
 }
 
 
@@ -610,7 +628,7 @@ background: linear-gradient(180deg,rgba(106, 2, 1, 0) 0%, rgba(106, 2, 1, 1) 28%
 
 .ceasefire-bg {
   position: relative;
-  height: 90%;
+  height: 83%;
 }
 /* sticky container */
 .ceasefire-layers {
@@ -647,7 +665,7 @@ background: linear-gradient(180deg,rgba(106, 2, 1, 0) 0%, rgba(106, 2, 1, 1) 28%
 .flare {
   z-index: 2;
   width: 20%;
-  top: 300px;
+  top: 250px;
   mix-blend-mode: screen;
   opacity: 0.9;
 }
@@ -965,6 +983,10 @@ body {
   height: 130vh;
 }
 
+.testemonial {
+  font-size: 1.2rem;
+}
+
   .testemonial.citation::before {
   top: 0;
   left: -25px;
@@ -977,14 +999,21 @@ body {
   content: "”";
 }
 
-  .intro-section {
-  height: 230vh; /* taller parent */
-  margin-bottom: 350px;
+.intro-section {
+  height: 190vh; /* taller parent */
+  margin-bottom: 230px;
 }
 
 .image-wrapper {
   max-width: 480px;
   margin-left: auto;
+}
+
+.text-section {
+  padding: 5rem 1.5rem 8rem;
+  line-height: 1.5;
+  font-size: 1.4rem;
+  margin-top: -5px;
 }
 
 /* this wrapper keeps margins consistent on desktop */
@@ -1047,7 +1076,6 @@ body {
   
 }
 
-
   .scroll-text {
     font-size: 1.3rem;
     max-width: 700px;
@@ -1071,6 +1099,7 @@ body {
     top: 10vh;
     left: 25%;
   }
+
 
 .press-illustration {
   width: 60%;
@@ -1105,7 +1134,7 @@ body {
 
   .closing-parallax {
         height: 80vh;
-}
+  }
 
     .closing-text {
     max-width: 600px;
@@ -1162,8 +1191,9 @@ body {
 }
 
 .flare {
-  top: 250px;
+  top: 300px;
 }
+
 
 .flare:nth-child(1) {
   left: 15%;

@@ -901,11 +901,19 @@ position: relative;}
   right: 1rem;
   z-index: 5;
   font-size: 0.9rem;
-  line-height: 1.5;
   text-align: left;
-  margin: 50px 40px 0;
+   margin-top: 50px;
 }
 
+.credits div {
+  line-height: 2;
+  margin: 0 auto;
+  width: fit-content;
+}
+
+.credits a {
+  color: #fdf6ef;
+}
 
 .no-margin {
   margin: 0;
@@ -1237,7 +1245,7 @@ body {
   .credits {
     text-align: left;
     width: fit-content;
-    margin: 50px 0 0 70%;
+    margin: 50px 0 0 67%;
     font-size: 1rem;
   }
 

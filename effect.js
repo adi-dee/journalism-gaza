@@ -1,14 +1,11 @@
-// Sun parallax: move DOWN slower but still cross the whole screen + smoother 3-color fade
+// Sun parallax: move DOWN slower but still cross the whole screen
 (() => {
   const section = document.querySelector('.intro-section');
   const sun = document.querySelector('.sun-wrapper');
-  const sunCircle = document.querySelector('.sun-circle');
-  const SPEED = 0.15;       // slower vertical movement
-  const COLOR_SPEED = 1.2;  // slower color change
+  const SPEED = 0.3; // <1 = slower than scroll, >1 = faster
 
   function onScroll() {
     if (!section || !sun) return;
-
     const rect = section.getBoundingClientRect();
     const sectionHeight = rect.height;
     const viewportHeight = window.innerHeight;
@@ -16,48 +13,16 @@
     // how much of the section has been scrolled
     const scrolled = Math.max(0, -rect.top);
 
-    // progress 0 → 1 through the section
-    const progress = Math.min(scrolled / (sectionHeight - viewportHeight), 1);
+    // move proportionally across the entire screen height
+    const progress = scrolled / (sectionHeight - viewportHeight);
+    const y = progress * viewportHeight; // full descent across screen
 
-    // === SUN POSITION ===
-    const y = progress * viewportHeight * SPEED;
     sun.style.transform = `translate(-50%, ${y}px)`;
-
-    // === COLOR FADE ===
-    if (sunCircle) {
-      // Start (dark red) → Mid (bright yellow) → End (soft peach)
-      const start = { r: 106, g: 2,   b: 1 };     // #6A0201 deep red
-      const mid   = { r: 255, g: 230, b: 150 };   // bright yellow glow
-      const end   = { r: 255, g: 221, b: 171 };   // warm peach
-
-      let r, g, b;
-      // Two-phase blend: 0–0.5 = start→mid, 0.5–1 = mid→end
-      if (progress < 0.5) {
-        const t = progress / 0.5;
-        r = Math.round(start.r + (mid.r - start.r) * t);
-        g = Math.round(start.g + (mid.g - start.g) * t);
-        b = Math.round(start.b + (mid.b - start.b) * t);
-      } else {
-        const t = (progress - 0.5) / 0.5;
-        r = Math.round(mid.r + (end.r - mid.r) * t);
-        g = Math.round(mid.g + (end.g - mid.g) * t);
-        b = Math.round(mid.b + (end.b - mid.b) * t);
-      }
-
-      sunCircle.style.fill = `rgb(${r}, ${g}, ${b})`;
-    }
-
-    // === DISAPPEAR AFTER SECTION ===
-    const fadeStart = sectionHeight - viewportHeight;
-    const fadeEnd = sectionHeight;
-    const fadeProgress = Math.min(Math.max((scrolled - fadeStart) / (fadeEnd - fadeStart), 0), 1);
-    sun.style.opacity = 1 - fadeProgress;
   }
 
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
 })();
-
 
 
 // parallex opening

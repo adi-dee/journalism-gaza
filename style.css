@@ -165,10 +165,6 @@ body {
   filter: blur(1px);
 }
 
-.sun-circle {
-  fill: #FFEFD5; /* starting color */
-  transition: fill 0.3s linear;
-}
 
 
 /* Gradient fade overlay */
@@ -198,7 +194,10 @@ body {
   margin-bottom: 15vh;
   font-family: 'Newsreader', serif;
   padding: 0.2rem;
-  background: linear-gradient(90deg, rgba(254, 252, 250, 0.3) 0%, /* start: same color, low opacity */ rgba(254, 252, 250, 1) 100% /* end: fully opaque */);
+  text-shadow:
+    0 0 2px #F5ECE1,
+    0 0 4px #F5ECE1,
+    0 0 6px #F5ECE1;
 }
 
  .scroll-paragraph a {

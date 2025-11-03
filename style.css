@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=B612+Mono:wght@400;700&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Newsreader:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
 
 
 body {
@@ -46,23 +47,21 @@ body {
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
+  margin-bottom: 10px;
 }
 
-.title-wrapper h2 {
+.title-wrapper p {
   margin: 0;
-  font-size: 1.2rem;
-  font-style: italic;
-  /* color: #444; */
-  font-family: "Source Serif 4", serif;
+  font-size: 1rem;
+  font-family: 'Lato', sans-serif;
   font-optical-sizing: auto;
-  font-weight: 700;
   font-style: normal;
+  line-height: 150%;
 }
 
 .intro-section {
   position: relative;
-   /* height: 300vh; */
-    height: 440vh;
+    height: 460vh;
 
 }
 
@@ -1010,8 +1009,7 @@ body {
 }
 
 .intro-section {
-  /* height: 200vh;  */
-  height: 280vh;
+  height: 300vh;
   margin-bottom: 230px;
 }
 
@@ -1077,8 +1075,8 @@ body {
     font-size: 3rem;
   }
 
-  .title-wrapper h2 {
-    font-size: 1.5rem;
+  .title-wrapper p {
+    font-size: 1.2rem;
   }
 
   .intro-visual {
@@ -1269,6 +1267,11 @@ body {
 /* --- Large phones / phablets --- */
 @media (min-width: 480px) and (max-width: 767px) {
 
+  .intro-section {
+  height: 360vh;
+}
+
+
   /* keep tablet-like layout for these specific elements */
   .illu-wrapper {
     max-width: 80%;
@@ -1292,6 +1295,12 @@ body {
 
 /* === iPad / Tablet Landscape Fix === */
 @media screen and (min-width: 481px) and (max-width: 1180px) and (orientation: landscape) {
+
+
+.intro-section {
+  height: 250vh;
+}
+
 
   .scroll-paragraph:first-of-type {
     margin-top: -70%;

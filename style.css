@@ -528,7 +528,7 @@ text-shadow:
 
 .testemonial.citation::after {
   bottom: -20px;
-  right: 0;
+  right: unset;
   content: "”";
 }
 

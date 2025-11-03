@@ -61,7 +61,7 @@ body {
 
 .intro-section {
   position: relative;
-    height: 460vh;
+    height: 420vh;
 
 }
 
@@ -218,13 +218,8 @@ body {
 
 /* === Next Section (Static Text) === */
 .text-section {
-  padding: 4rem 1.5rem;
-  line-height: 1.7;
-  font-size: 1.05rem;
-  background-color: #faf3e8;
-  color: #333;
-  position: relative;
-  z-index: 5;
+      height: 80px;
+
 }
 
 .text-wrapper {
@@ -232,10 +227,6 @@ body {
   margin: 0 auto;
 }
 
-.text-section p {
-  margin-bottom: 2rem;
-  font-family: 'Newsreader', serif;
-}
 
 /* === timeline section === */
 
@@ -996,7 +987,7 @@ body {
 
 
 .parallax-scene {
-  height: 130vh;
+  height: 115vh;
 }
 
 .testemonial {
@@ -1018,7 +1009,7 @@ body {
 .intro-section {
   margin-top: -450px;
   margin-bottom: 230px;
-  height: 320vh;
+  height: 340vh;
 
 }
 
@@ -1027,12 +1018,6 @@ body {
   margin-left: auto;
 }
 
-.text-section {
-  padding: 5rem 1.5rem 8rem;
-  line-height: 1.5;
-  font-size: 1.4rem;
-  margin-top: -5px;
-}
 
 /* this wrapper keeps margins consistent on desktop */
 .content-wrapper {
@@ -1336,7 +1321,6 @@ body {
   }
 
   .timeline-section,
-  .text-section,
   .scroll-text {
     max-width: 90%;
     margin: 0 auto;

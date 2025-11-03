@@ -64,6 +64,7 @@ body {
   height: 100%;
 }
 
+
 .sticky-graphic {
   position: sticky;
   top: 0;
@@ -198,6 +199,12 @@ body {
     0 0 6px #F5ECE1;
 }
 
+
+  .scroll-buffer {
+    height: 400px;
+  }
+
+
  .scroll-paragraph a {
     color: #4A0C0B;
   }
@@ -211,9 +218,6 @@ body {
   margin-top: -150%;
 }
 
-.scroll-paragraph:last-of-type {
-  margin-bottom: 300px;
-}
 
 /* === Next Section (Static Text) === */
 .text-section {
@@ -1096,9 +1100,9 @@ body {
         margin-top: 0;
   }
 
-  .scroll-paragraph:last-of-type {
-    margin-bottom: 400px;
-}
+ .scroll-buffer {
+    height: 400px;
+  }
 
   .sun {
     width: 150px;
@@ -1261,7 +1265,13 @@ body {
 /* --- Large phones / phablets --- */
 @media (min-width: 480px) and (max-width: 767px) {
 
+@supports (-webkit-touch-callout: none) {
+  .intro-section {
+    padding-bottom: 70vh !important;
+  }
 
+  
+}
 
   /* keep tablet-like layout for these specific elements */
   .illu-wrapper {

@@ -194,10 +194,13 @@ body {
   margin-bottom: 50px;
   font-family: 'Newsreader', serif;
   padding: 0.2rem;
-  text-shadow:
-    0 0 2px #ffffff,
-    0 0 6px #fff3d9,
-    0 0 12px #fff1cc;
+  color: black;
+text-shadow:
+      0 0 1px #fff,
+      0 0 4px #fff,
+      0 0 10px #fff,
+      0 0 20px rgba(255, 255, 255, 0.9);
+
 }
 
 
@@ -471,7 +474,7 @@ body {
 
 .testemonial {
   font-style: italic;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-family: 'Newsreader', serif;
   font-family: 'Newsreader';
   font-weight: 500;
@@ -494,7 +497,7 @@ body {
 .testemonial.citation {
   font-family: 'Newsreader', serif;  /* elegant serif (already imported) */
   font-style: italic;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   line-height: 1.8;
   color: #4A0C0B; /* deep muted red tone for warmth */
   margin: 2.5rem 0;

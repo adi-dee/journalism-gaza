@@ -61,8 +61,7 @@ body {
 
 .intro-section {
   position: relative;
-    height: 420vh;
-
+  height: 100%;
 }
 
 .sticky-graphic {
@@ -213,7 +212,7 @@ body {
 }
 
 .scroll-paragraph:last-of-type {
-  margin-bottom: 0;
+  margin-bottom: 300px;
 }
 
 /* === Next Section (Static Text) === */
@@ -231,12 +230,10 @@ body {
 /* === timeline section === */
 
 .timeline-section {
-  margin: 0 10px 50px 20px;
+  margin: 60px 10px 50px 20px;
   position: relative;
-  /* background: #fef4ea; */
   padding: 0;
-  /* border-left: 3px dashed gray; */
-
+  z-index: 2;
 }
 
 .timeline-block {
@@ -970,7 +967,7 @@ body {
  }
 
  .title-wrapper {
-    margin: 150px 0 0 30%;
+    margin: 120px 0 0 30%;
  }
 
  .scroll-paragraph {
@@ -1009,7 +1006,7 @@ body {
 .intro-section {
   margin-top: -450px;
   margin-bottom: 230px;
-  height: 340vh;
+  height: 100%;
 
 }
 
@@ -1096,9 +1093,12 @@ body {
   }
 
   .scroll-paragraph:first-of-type {
-        /* margin-top: -100%; */
         margin-top: 0;
   }
+
+  .scroll-paragraph:last-of-type {
+    margin-bottom: 400px;
+}
 
   .sun {
     width: 150px;
@@ -1261,9 +1261,6 @@ body {
 /* --- Large phones / phablets --- */
 @media (min-width: 480px) and (max-width: 767px) {
 
-  .intro-section {
-  height: 360vh;
-}
 
 
   /* keep tablet-like layout for these specific elements */
@@ -1289,11 +1286,6 @@ body {
 
 /* === iPad / Tablet Landscape Fix === */
 @media screen and (min-width: 481px) and (max-width: 1180px) and (orientation: landscape) {
-
-
-.intro-section {
-  height: 250vh;
-}
 
 
   .scroll-paragraph:first-of-type {

@@ -255,19 +255,14 @@ body {
      font-family: "B612 Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
 }
 
-/* Sticky header */
-.timeline-header {
-  position: sticky;
-    background: #fef4ea;
-    margin-left: 3px;
-    top: 0;
-    padding: 20px 0px 40px 10px;
-    z-index: 5;
-     font-family: "B612 Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
-
+/* === TIMELINE SECTION === */
+.timeline-section {
+  margin: 0 10px 50px 20px;
+  position: relative;
+  padding: 0;
 }
 
-/* partial right “border” that starts 2rem below the top */
+/* dashed vertical line (left) */
 .timeline-section::after {
   content: "";
   position: absolute;
@@ -275,32 +270,49 @@ body {
   left: 0;
   bottom: 0;
   width: 1px;
-
-  background-image:
-    repeating-linear-gradient(
-      to bottom,
-      #6A0201 0,
-      #6A0201 10px,
-      transparent 10px,
-      transparent 20px
-    );
-
-  /* 🎨 fade out only at the end */
+  background-image: repeating-linear-gradient(
+    to bottom,
+    #6A0201 0,
+    #6A0201 10px,
+    transparent 10px,
+    transparent 20px
+  );
   mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
   -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
-
   pointer-events: none;
   z-index: 0;
 }
 
-
-/* keep your content above the line (optional) */
-.timeline-section > *{
+/* keep content above the dashed line */
+.timeline-section > * {
   position: relative;
   z-index: 1;
 }
 
-/* dashed line on top */
+/* === TIMELINE BLOCK === */
+.timeline-block {
+  margin-bottom: 5px;
+  position: relative;
+  font-family: "B612 Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+/* === STICKY HEADER === */
+.timeline-header {
+  position: sticky;
+  top: 0;
+  background: #fef4ea;
+  margin-left: 3px;
+  padding: 20px 10px 40px 10px;
+  z-index: 5;
+  font-family: "B612 Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+
+  /* ✅ FLEXBOX for headline + date layout */
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+/* dashed horizontal line (top border) */
 .timeline-header::before {
   content: "";
   position: absolute;
@@ -317,6 +329,32 @@ body {
   );
 }
 
+/* === HEADLINE === */
+.timeline-header .headline {
+  flex: 1;
+  font-family: "Source Serif 4", serif;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: left;
+  margin: 0;
+}
+
+.headline a {
+  color: inherit;
+  font-weight: bold;
+  background-color: #faf3e8;
+  text-decoration: none;
+}
+
+/* === DATE === */
+.timeline-header .date {
+  font-size: 0.95rem;
+  text-align: right;
+  white-space: nowrap;
+  flex: 0 0 auto; /* prevents shrinking */
+}
+
+/* === OPTIONAL VARIATIONS === */
 .timeline-no-margin {
   margin-top: -50px;
 }
@@ -333,56 +371,23 @@ body {
   background-color: transparent;
 }
 
-/* layout for date + headline */
-.timeline-header .date,
-.timeline-header .headline {
-  display: inline-block;
-  vertical-align: baseline;
-}
-
-/* date on left */
-.timeline-header .date {
-  font-size: 0.95rem;
-  width: 20%;
-}
-
-/* headline on right */
-.timeline-header .headline {
-  font-family: "Source Serif 4", serif;
-  font-size: 18px;
-  font-weight: 400;
-  width: 67%;
-  float: left;
-  text-align: left;
-  margin: 0;
-  margin-top: -4px;
-}
-
-.headline a {
-  color: inherit;
-  font-weight: bold;
-  background-color: #faf3e8;
-}
-
-
-
-/* bottom dashed line — same style as top, but can move vertically */
+/* === OPTIONAL bottom dashed line (dummy header) === */
 .dummy-header::before {
   content: "";
   position: absolute;
-  bottom: 8px; /* <-- adjust this value to move it UP */
+  bottom: 8px;
   left: 0;
   width: 100%;
   height: 1px;
-
   background-image: repeating-linear-gradient(
     to right,
-     0,
-     10px,
+    #6A0201 0,
+    #6A0201 10px,
     transparent 10px,
     transparent 20px
   );
 }
+
 
 
 /* Content under sticky header */

@@ -930,7 +930,7 @@ position: relative;}
   position: relative;
   max-width: 280px;
   margin: 100px auto 70px;
-  margin-left: 0;
+  margin-left: -10px;
   overflow: visible;
 }
 
@@ -1271,7 +1271,9 @@ body {
   /* make layout behave like mobile again */
   .image-wrapper {
     max-width: 50%;
+    margin-left: auto;
     margin: 60px auto;
+
   }
 
   .main-image {

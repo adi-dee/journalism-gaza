@@ -1301,8 +1301,7 @@ body {
 }
 
 /* === iPad / Tablet Landscape Fix === */
-@media screen and (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
-
+@media screen and (min-width: 768px) and (max-width: 1023px) and (orientation: portrait) {
 
 
   .scroll-buffer {
@@ -1360,7 +1359,7 @@ body {
 }
 
   .closing-parallax {
-    height: 80vh;
+    height: 90vh;
   }
 
 
@@ -1370,7 +1369,6 @@ body {
     margin: 60px auto 0;
   }
 }
-
 
 /* === FINAL SECTION BLOCK (after timeline) === */
 .last-block {

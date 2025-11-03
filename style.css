@@ -474,11 +474,11 @@ text-shadow:
 
 .testemonial {
   font-style: italic;
-  font-size: 1.1rem;
+  font-size: 22px;
   font-family: 'Newsreader', serif;
   font-family: 'Newsreader';
   font-weight: 500;
-  line-height: 143%;
+  line-height: 1.5;
   color: #0E2229;
   margin-bottom: 50px;
   }
@@ -497,8 +497,8 @@ text-shadow:
 .testemonial.citation {
   font-family: 'Newsreader', serif;  /* elegant serif (already imported) */
   font-style: italic;
-  font-size: 1.4rem;
-  line-height: 1.8;
+  font-size: 29px;
+  line-height: 1.5;
   color: #4A0C0B; /* deep muted red tone for warmth */
   margin: 2.5rem 0;
   text-align: center;
@@ -524,12 +524,14 @@ text-shadow:
   top: 20px;
   left: -10px;
   content: "“";
+  padding: 2px;
 }
 
 .testemonial.citation::after {
   bottom: -20px;
-  right: unset;
+  right: 0;
   content: "”";
+   padding: 6px;
 }
 
 
@@ -871,7 +873,7 @@ position: relative;}
   line-height: 143%;
   font-family: 'Newsreader';
   color: #fdf6ef;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   margin-bottom: 60px;
   font-style: italic;
 }
@@ -932,7 +934,7 @@ position: relative;}
 .image-credit {
     z-index: 2;
     position: absolute;
-    font-size: 0.6rem;
+    font-size: 12px;
     padding-top: 5px;
 }
 

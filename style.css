@@ -1266,6 +1266,11 @@ body {
 /* --- Large phones / phablets --- */
 @media (min-width: 480px) and (max-width: 767px) {
 
+  .scroll-buffer {
+    height: 400px;
+  }
+
+
 @supports (-webkit-touch-callout: none) {
   .intro-section {
     padding-bottom: 70vh !important;
@@ -1296,7 +1301,13 @@ body {
 }
 
 /* === iPad / Tablet Landscape Fix === */
-@media screen and (min-width: 481px) and (max-width: 1180px) and (orientation: landscape) {
+@media screen and (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
+
+
+
+  .scroll-buffer {
+    height: 400px;
+  }
 
 
   .scroll-paragraph:first-of-type {

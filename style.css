@@ -42,17 +42,17 @@ body {
 
 .title-wrapper h1 {
   margin: 0;
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-family: "Source Serif 4", serif;
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
 
 .title-wrapper p {
   margin: 0;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-family: 'Lato', sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
@@ -155,7 +155,7 @@ body {
   position: fixed;
   top: 10vh;
   left: 20%;
-  z-index: 0;
+  z-index: -1;
 }
 
 .sun {
@@ -190,7 +190,7 @@ body {
 }
 
 .scroll-paragraph {
-  margin-bottom: 15vh;
+  margin-bottom: 80px;
   font-family: 'Newsreader', serif;
   padding: 0.2rem;
   text-shadow:
@@ -976,8 +976,15 @@ position: relative;}
 body {
     background: linear-gradient(to bottom, #ffffff 0%,  #faf3e8 8%, #faf3e8 92%,  #0E2229 96%, #0E2229 100%);
       /* background:linear-gradient(to bottom, #ffffff 0%,  #faf3e8 5%, #faf3e8 52%, #6A0201 55%,   #0E2229 62%,  #faf3e8 65%, #faf3e8 90%, #0E2229 96%, #0E2229 100%); */
-
  }
+
+ .title-wrapper {
+    margin: 150px 0 0 30%;
+ }
+
+ .scroll-paragraph {
+  margin-bottom: 120px;
+}
 
  .layer {
   bottom: 0;
@@ -1009,8 +1016,10 @@ body {
 }
 
 .intro-section {
-  height: 300vh;
+  margin-top: -450px;
   margin-bottom: 230px;
+  height: 320vh;
+
 }
 
 .image-wrapper {
@@ -1043,7 +1052,7 @@ body {
 
   .scroll-text {
     max-width: 640px;
-    margin-left: 28%;
+    /* margin-left: 28%; */
   }
 
   .text-wrapper {
@@ -1102,8 +1111,8 @@ body {
   }
 
   .scroll-paragraph:first-of-type {
-    /* margin-top: -10vh;*/
-        margin-top: -90%;
+        /* margin-top: -100%; */
+        margin-top: 0;
   }
 
   .sun {
@@ -1113,7 +1122,7 @@ body {
   }
 
   .sun-wrapper {
-    top: 10vh;
+    top: 15vh;
     left: 28%;
   }
 

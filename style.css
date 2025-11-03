@@ -302,7 +302,7 @@ body {
   top: 0;
   background: #fef4ea;
   margin-left: 3px;
-  padding: 15px 10px 5px 10px;
+  padding: 15px 0px 5px 10px;
   z-index: 5;
   font-family: "B612 Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
 
@@ -318,7 +318,7 @@ body {
   position: absolute;
   top: 5px;
   left: 0;
-  width: 99%;
+  width: 101%;
   height: 1px;
   background-image: repeating-linear-gradient(
     to right,
@@ -1058,7 +1058,7 @@ body {
   }
 
   .timeline-header {
-      padding: 20px 20px 10px 55px;
+      padding: 20px 0px 10px 55px;
       margin-right: 5px;
   }
 
@@ -1266,7 +1266,12 @@ body {
 }
 
 /* === iPad / Tablet Landscape Fix === */
-@media screen and (min-width: 768px) and (max-width: 1180px) and (orientation: landscape) {
+@media screen and (min-width: 481px) and (max-width: 1180px) and (orientation: landscape) {
+
+  .scroll-paragraph:first-of-type {
+    margin-top: -70%;
+  }
+
 
   /* make layout behave like mobile again */
   .image-wrapper {

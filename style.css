@@ -63,6 +63,7 @@ body {
   position: relative;
   height: 100%;
   margin-bottom: 100px;
+  pointer-events: none;
 }
 
 
@@ -218,9 +219,10 @@ text-shadow:
   }
 
 .scroll-paragraph:first-of-type {
-  /* margin-top: -20vh;  */
   margin-top: -150%;
 }
+
+
 
 
 /* === Next Section (Static Text) === */
@@ -1267,9 +1269,84 @@ body {
 
 }
 
+@media screen and (min-width: 768px) and (max-width: 1200px) and (orientation: landscape){
+
+.scroll-paragraph:first-of-type {
+    margin-top: -60%;
+  }
+
+
+  .scroll-buffer {
+    height: 400px;
+  }
+
+
+  .scroll-paragraph:first-of-type {
+    margin-top: -70%;
+  }
+
+
+  /* make layout behave like mobile again */
+  .image-wrapper {
+    max-width: 50%;
+    margin-left: auto;
+    margin: 60px auto;
+
+  }
+
+  .main-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .bg-shadow {
+    top: -20px;
+    left: 10px;
+  }
+
+  .timeline-section,
+  .scroll-text {
+    max-width: 90%;
+    margin: 0 auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .timeline-content {
+    padding: 20px 20px 80px 20px;
+  }
+
+  .illu-wrapper,
+  .press-illustration,
+  .eye-illustration {
+    max-width: 50%;
+    margin: 2rem auto;
+  }
+
+  .closing-text {
+    padding: 0 6rem 0;
+    line-height: 143%;
+    font-size: 1.2rem;
+}
+
+  .closing-parallax {
+    height: 70vh;
+  }
+
+
+  /* keep credits readable and centered */
+  .credits {
+    text-align: center;
+    margin: 60px auto 0;
+  }
+
+}
+
 
 /* --- Large phones / phablets --- */
 @media (min-width: 480px) and (max-width: 767px) {
+
 
   .scroll-buffer {
     height: 400px;
@@ -1300,7 +1377,7 @@ body {
   }
 
     .closing-parallax {
-    height: 50vh;
+     height: 60vh;
   }
 
 }

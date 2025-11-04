@@ -227,6 +227,11 @@ text-shadow:
   margin-top: -50%;
 }
 
+.scroll-paragraph:last-of-type {
+  margin-bottom: 70px;
+}
+
+
 
 
 

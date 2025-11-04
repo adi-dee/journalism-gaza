@@ -361,7 +361,10 @@ text-shadow:
 
 .no-line {
   background: none;
+  /* margin-top: 20px; */
 }
+
+
 
 .no-line::before {
   display: none;
@@ -628,10 +631,11 @@ text-shadow:
 
 .ceasefire-bg {
   position: relative;
-  height: 83%;
+  /* height: 83%; */
+  height: 75%;
 }
 
-
+  
 
 
 
@@ -697,18 +701,7 @@ text-shadow:
   }
   
   
-@supports (-webkit-touch-callout: none) and (not (translate: none)) {
-  @media only screen and (max-width: 430px) {
-    .ceasefire-parallax {
-      margin-bottom: 50px !important;
-      overflow: visible !important;
-    }
-    .ceasefire-bg {
-      height: auto !important;
-      min-height: 80%;
-    }
-  }
-}
+
 /* Rectangle 74 */
 
 
@@ -1190,7 +1183,7 @@ body {
   /* ceasfire section desktop */
 
   .ceasefire-parallax {
-  height: 200vh;             /* tall scrollable section  */
+    height: 200vh; 
   }
 
 .layer-far { 

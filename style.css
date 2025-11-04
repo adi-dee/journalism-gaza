@@ -637,6 +637,22 @@ text-shadow:
   position: relative;
   height: 83%;
 }
+
+
+
+@supports (-webkit-touch-callout: none) and (not (translate: none)) {
+  @media only screen and (max-width: 430px) {
+    .ceasefire-parallax {
+      margin-bottom: 30px;
+    }
+
+      .ceasefire-bg {
+  position: relative;
+  height: 80%;
+}
+  }
+}
+
 /* sticky container */
 .ceasefire-layers {
   position: sticky;

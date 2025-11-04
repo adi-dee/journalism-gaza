@@ -1271,10 +1271,6 @@ body {
 
 @media screen and (min-width: 768px) and (max-width: 1200px) and (orientation: landscape){
 
-.scroll-paragraph:first-of-type {
-    margin-top: -60%;
-  }
-
 
   .scroll-buffer {
     height: 400px;
@@ -1282,7 +1278,7 @@ body {
 
 
   .scroll-paragraph:first-of-type {
-    margin-top: -70%;
+    margin-top: 0;
   }
 
 
@@ -1392,7 +1388,7 @@ body {
 
 
   .scroll-paragraph:first-of-type {
-    margin-top: -70%;
+    margin-top: 0;
   }
 
 

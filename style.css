@@ -211,7 +211,7 @@ text-shadow:
 
 
   .scroll-buffer {
-    height: 200px;
+    height: 300px;
   }
 
 
@@ -226,12 +226,6 @@ text-shadow:
 .scroll-paragraph:first-of-type {
   margin-top: -50%;
 }
-
-.scroll-paragraph:last-of-type {
-  margin-bottom: 70px;
-}
-
-
 
 
 
@@ -639,18 +633,7 @@ text-shadow:
 
 
 
-@supports (-webkit-touch-callout: none) and (not (translate: none)) {
-  @media only screen and (max-width: 430px) {
-    .ceasefire-parallax {
-      margin-bottom: 30px;
-    }
 
-      .ceasefire-bg {
-  position: relative;
-  height: 80%;
-}
-  }
-}
 
 /* sticky container */
 .ceasefire-layers {
@@ -714,7 +697,18 @@ text-shadow:
   }
   
   
-
+@supports (-webkit-touch-callout: none) and (not (translate: none)) {
+  @media only screen and (max-width: 430px) {
+    .ceasefire-parallax {
+      margin-bottom: 50px !important;
+      overflow: visible !important;
+    }
+    .ceasefire-bg {
+      height: auto !important;
+      min-height: 80%;
+    }
+  }
+}
 /* Rectangle 74 */
 
 
@@ -1124,7 +1118,7 @@ body {
   }
 
   .scroll-paragraph {
-    margin-bottom: 80px; /* less empty scroll on desktop */
+    margin-bottom: 0px; /* less empty scroll on desktop */
     background: none;
     padding: 0;
   }

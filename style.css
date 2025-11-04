@@ -9,7 +9,7 @@ body {
   overflow-x: hidden;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
                'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  background: linear-gradient(to bottom, #ffffff 0%, #faf3e8 8%, #faf3e8 20%, #faf3e8 93%,  #0E2229 98%, #0E2229 100%);
+  background: linear-gradient(to bottom, #ffffff 0%, #faf3e8 8%, #faf3e8 20%, #faf3e8 91%,  #0E2229 98%, #0E2229 100%);
   /* background:linear-gradient(to bottom, #ffffff 0%, #faf3e8 56%, #6A0201 59%, #0E2229 66%, #faf3e8 69%, #faf3e8 90%, #0E2229 96%, #0E2229 100%); */
   color: #333;
 }
@@ -36,7 +36,6 @@ body {
   padding: 300px 0px 0px 30px;
   margin: 0 auto;
   margin-left: 10px;
-
 }
 
 .title-wrapper h1 {

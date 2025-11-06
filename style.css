@@ -33,7 +33,7 @@ body {
 
 /* === Intro Section (Sunset Style) === */
 .title-wrapper {
-  padding: 200px 0px 0px 30px;
+  padding: 250px 0px 0px 30px;
   margin: 0 auto;
   margin-left: 10px;
 }
@@ -1394,6 +1394,10 @@ body {
 @media screen and (min-width: 1600px) {
     .parallax-scene {
     height: 120vh;
+  }
+
+  .title-wrapper {
+  padding: 300px 0px 0px 30px;
   }
 }
 

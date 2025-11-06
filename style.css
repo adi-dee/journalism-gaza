@@ -1082,6 +1082,11 @@ body {
     text-align: right;
   } 
 
+      .title-wrapper {
+      padding: 220px 0px 0px 30px;
+      
+    }
+
   
   .title-wrapper h1 {
     font-size: 3rem;
@@ -1394,10 +1399,6 @@ body {
 @media screen and (min-width: 1600px) {
     .parallax-scene {
     height: 120vh;
-  }
-
-  .title-wrapper {
-  padding: 300px 0px 0px 30px;
   }
 }
 

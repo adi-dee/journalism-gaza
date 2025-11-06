@@ -619,6 +619,14 @@
 </section>
   </div>
   <!-- JS Scripts -->
+   <script>
+      window.addEventListener('scroll', function() {
+        window.parent.postMessage({
+          type: 'iframe-scroll',
+          scrollTop: window.pageYOffset || document.documentElement.scrollTop
+        }, '*');
+      });
+      </script>
   <script src="effect.js"></script>
 </body>
 </html>

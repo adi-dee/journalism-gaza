@@ -317,7 +317,7 @@ text-shadow:
 .timeline-header::before {
   content: "";
   position: absolute;
-  top: 5px;
+  top: 10px;
   left: 0;
   width: 101%;
   height: 1px;

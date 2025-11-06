@@ -33,7 +33,7 @@ body {
 
 /* === Intro Section (Sunset Style) === */
 .title-wrapper {
-  padding: 300px 0px 0px 30px;
+  padding: 200px 0px 0px 30px;
   margin: 0 auto;
   margin-left: 10px;
 }
@@ -1005,7 +1005,7 @@ body {
 
 
 .parallax-scene {
-  height: 115vh;
+  height: 116vh;
 }
 
 .testemonial {
@@ -1131,8 +1131,8 @@ body {
   }
 
   .sun-wrapper {
-    top: 15vh;
-    left: 28%;
+    top: 12vh;
+    left: 32%;
   }
 
 
@@ -1389,6 +1389,14 @@ body {
   }
 
 }
+
+
+@media screen and (min-width: 1600px) {
+    .parallax-scene {
+    height: 120vh;
+  }
+}
+
 
 /* === iPad / Tablet Landscape Fix === */
 @media screen and (min-width: 768px) and (max-width: 1023px) and (orientation: portrait) {
